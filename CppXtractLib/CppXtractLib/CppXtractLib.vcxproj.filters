@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Transducer">
+      <UniqueIdentifier>{8c0b49b0-bc9c-4317-a8f9-2591aa2a8cca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Transducer">
+      <UniqueIdentifier>{533645cf-8577-4825-8c10-48846975fd09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FST">
+      <UniqueIdentifier>{201e3a06-308a-481f-83bc-b6163381511a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Reporter.h">
+      <Filter>Header Files\Transducer</Filter>
+    </ClInclude>
+    <ClInclude Include="Transducer.h">
+      <Filter>Header Files\Transducer</Filter>
+    </ClInclude>
+    <ClInclude Include="TransducerCounter.h">
+      <Filter>Header Files\Transducer</Filter>
+    </ClInclude>
+    <ClInclude Include="TransducerCounterReporter.h">
+      <Filter>Header Files\Transducer</Filter>
+    </ClInclude>
+    <ClInclude Include="TransducerRepeater.h">
+      <Filter>Header Files\Transducer</Filter>
+    </ClInclude>
+    <ClInclude Include="TransducerReporter.h">
+      <Filter>Header Files\Transducer</Filter>
+    </ClInclude>
+    <ClInclude Include="TransducerStaticWriter.h">
+      <Filter>Header Files\Transducer</Filter>
+    </ClInclude>
+    <ClInclude Include="Symbol.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Reporter.cpp">
+      <Filter>Source Files\Transducer</Filter>
+    </ClCompile>
+    <ClCompile Include="Transducer.cpp">
+      <Filter>Source Files\Transducer</Filter>
+    </ClCompile>
+    <ClCompile Include="TransducerCounter.cpp">
+      <Filter>Source Files\Transducer</Filter>
+    </ClCompile>
+    <ClCompile Include="TransducerCounterReporter.cpp">
+      <Filter>Source Files\Transducer</Filter>
+    </ClCompile>
+    <ClCompile Include="TransducerRepeater.cpp">
+      <Filter>Source Files\Transducer</Filter>
+    </ClCompile>
+    <ClCompile Include="TransducerReporter.cpp">
+      <Filter>Source Files\Transducer</Filter>
+    </ClCompile>
+    <ClCompile Include="TransducerStaticWriter.cpp">
+      <Filter>Source Files\Transducer</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
