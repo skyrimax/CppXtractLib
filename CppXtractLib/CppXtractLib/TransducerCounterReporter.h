@@ -1,7 +1,6 @@
 #ifndef TRANSDUCER_COUNTER_REPORTER_H
 #define TRANSDUCER_COUNTER_REPORTER_H
 
-
 #include "Reporter.h"
 #include <list>
 
