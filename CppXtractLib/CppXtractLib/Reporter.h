@@ -14,7 +14,8 @@ public:
 	Reporter(const Reporter & transducer) = default;
 	Reporter& operator=(const Reporter & transducer) = default;
 
-	virtual std::string report() = 0;
+
+	virtual std::string report() = 0; // Oblige les enfants créés de cette classe à utiliser Report
 };
 
 

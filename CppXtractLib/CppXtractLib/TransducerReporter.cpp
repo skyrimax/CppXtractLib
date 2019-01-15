@@ -22,6 +22,8 @@ void TransducerReporter::setReporter(Reporter * reporter)
 
 }
 
+// Communication inter-objet
+
 std::string TransducerReporter::transduce(symbol_t symbol)
 {
 	if (mReporter) {

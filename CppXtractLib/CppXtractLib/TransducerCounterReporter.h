@@ -25,7 +25,7 @@ public:
 
 protected:
 	int mOffsetCounter;
-	std::list<TransducerCounter*> mTransducerCounters;
+	std::list<TransducerCounter*> mTransducerCounters; // Création d'une liste, définie dans l'espace std, de pointeur de type TransducerCounter
 	size_t mWidth{ 0 };
 	char mFillChar{ ' ' };
 };
