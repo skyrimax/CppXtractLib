@@ -27,4 +27,3 @@ std::string TransducerCounter::transduce(symbol_t symbol)
 	++mCount;
 	return std::string("");
 }
-
