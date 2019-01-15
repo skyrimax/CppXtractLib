@@ -12,11 +12,13 @@ class Reporter;
 class TransducerReporter : public Transducer
 {
 public:
-	TransducerReporter(Reporter * reporter = nullptr);
+	TransducerReporter(Reporter * reporter = nullptr); // Variable par défaut = nullptr
+	// Pas de default - On doit implanter
 	virtual ~TransducerReporter();
 	TransducerReporter(const TransducerReporter & transducer) = delete;
 	TransducerReporter& operator=(const TransducerReporter & transducer) = delete;
 
+	// Mutateur
 	void setReporter(Reporter * reporter);
 
 	std::string transduce(symbol_t symbol) override;
