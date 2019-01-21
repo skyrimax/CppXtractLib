@@ -23,7 +23,9 @@ void TransducerReporter::setReporter(Reporter * reporter)
 	mReporter = reporter;
 }
 
-//
+// Appel la fonctioon report de l'objet de type Reporteur
+// si celui-ci est assigné, sinon retourne une chaine de
+// de caractère vide.
 std::string TransducerReporter::transduce(symbol_t symbol)
 {
 	if (mReporter)
