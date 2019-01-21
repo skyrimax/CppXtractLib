@@ -16,7 +16,7 @@ public:
 	virtual ~TransducerReporter();
 	TransducerReporter(const TransducerReporter & transducer) = delete;
 	TransducerReporter& operator=(const TransducerReporter & transducer) = delete;
-
+	// Mutateur
 	void setReporter(Reporter * reporter);
 
 	std::string transduce(symbol_t symbol) override;
