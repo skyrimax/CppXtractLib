@@ -2,7 +2,7 @@
 
 // Note: Le rôle de la classe TransducerCounter
 //       est donné à la page 12 du cahier de laboratoire
-
+// Ajout test
 // Constructeur de la classe
 TransducerCounter::TransducerCounter()
 	: Transducer(), mCount{ 0 }
