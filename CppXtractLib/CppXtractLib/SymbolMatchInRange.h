@@ -11,7 +11,7 @@ class SymbolMatchInRange : public SymbolComparator
 {
 public:
 	SymbolMatchInRange();
-	SymbolMatchInRange(symbol_t firstSymbol, symbol_t lastSymbol);
+	SymbolMatchInRange(symbol_t firstSymbol = '\n', symbol_t lastSymbol='\n');
 	virtual ~SymbolMatchInRange() = default;
 	SymbolMatchInRange(const SymbolMatchInRange & symbComp) = default;
 	SymbolMatchInRange& operator=(const SymbolMatchInRange & symbComp) = default;

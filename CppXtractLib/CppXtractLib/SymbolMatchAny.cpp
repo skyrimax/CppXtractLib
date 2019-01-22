@@ -4,13 +4,15 @@
 #include <algorithm>
 
 // 1a) Implantation du constructeur acceptant un symbole
-SymbolMatchAny::SymbolMatchAny(symbol_t symbol) 
+SymbolMatchAny::SymbolMatchAny(symbol_t symbol)
+	: SymbolComparator()
 { 
 	addSymbol(symbol); 
 }
 
 // 1b) Implantation du Constructeur acceptant des symboles dans une liste
-SymbolMatchAny::SymbolMatchAny(const std::list<symbol_t> & symbols) 
+SymbolMatchAny::SymbolMatchAny(const std::list<symbol_t> & symbols)
+	: SymbolComparator()
 { 
 	addSymbol(symbols); 
 }
@@ -18,6 +20,7 @@ SymbolMatchAny::SymbolMatchAny(const std::list<symbol_t> & symbols)
 // 1c) Implantation du constructeur acceptant des symboles comme paramètres 
 // passés au constructeur
 SymbolMatchAny::SymbolMatchAny(const std::initializer_list<symbol_t> & symbols)
+	: SymbolComparator()
 { 
 	addSymbol(symbols); 
 }
@@ -76,5 +79,3 @@ bool SymbolMatchAny::compare(symbol_t symbol) const
 	
 	return false; 
 }
-
-
