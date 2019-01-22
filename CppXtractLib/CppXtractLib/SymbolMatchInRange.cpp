@@ -32,7 +32,8 @@ SymbolMatchInRange::SymbolMatchInRange(symbol_t firstSymbol, symbol_t lastSymbol
 //    SymbolMatchInRange::range(symbol_t & firstSymbol, symbol_t & lastSymbol) const
 void SymbolMatchInRange::range(symbol_t & firstSymbol, symbol_t & lastSymbol) const
 {
-
+	firstSymbol = mFirstSymbol;
+	lastSymbol = mLastSymbol;
 }
 
 // 3) Implanter la fonction membre qui régle la valeur de 
@@ -47,7 +48,11 @@ void SymbolMatchInRange::setRange(symbol_t firstSymbol, symbol_t lastSymbol)
 // 4) Implantation de la fonction (purement virtuelle) compare()
 //    Ici on vérifie que le symbole reçu X en paramètre est efectivement
 //    X >= mFirstSymbol et X <= mLastSymbol
-bool compare(symbol_t symbol) const
+bool SymbolMatchInRange::compare(symbol_t symbol) const
 {
-
+	if (symbol >= mFirstSymbol and symbol >= mLastSymbol)
+	{
+		return 1;
+	}
+	return 0;
 }

@@ -22,6 +22,6 @@ SymbolMatchOutRange::SymbolMatchOutRange(symbol_t firstSymbol, symbol_t lastSymb
 
 bool SymbolMatchOutRange::compare(symbol_t symbol) const
 {
-
+	return !SymbolMatchInRange::compare(symbol);
 }
 
