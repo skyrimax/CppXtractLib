@@ -32,6 +32,8 @@ public:
 
 	// Intrément la valeur de mCount
 	// et retourne une chaine vide.
+	//override est facultatif, il permet de dire au compilateur\
+	que l'on va implenter la fonction.
 	std::string transduce(symbol_t symbol) override;
 
 protected:

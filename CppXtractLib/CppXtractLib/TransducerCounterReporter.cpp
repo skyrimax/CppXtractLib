@@ -1,6 +1,4 @@
 #include "TransducerCounterReporter.h"
-
-
 #include <sstream>
 #include <iomanip>
 #include "TransducerCounter.h"
