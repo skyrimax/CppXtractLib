@@ -22,6 +22,12 @@
     <Filter Include="Header Files\FST">
       <UniqueIdentifier>{201e3a06-308a-481f-83bc-b6163381511a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\SymbolComparator">
+      <UniqueIdentifier>{dc11198f-1597-42b4-af44-34bfbad4cafe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SymbolComparator">
+      <UniqueIdentifier>{01fc2bfd-f777-4e7b-a0ad-95b9b6c17fc7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Reporter.h">
@@ -48,6 +54,30 @@
     <ClInclude Include="Symbol.h">
       <Filter>Header Files\FST</Filter>
     </ClInclude>
+    <ClInclude Include="SymbolComparator.h">
+      <Filter>Header Files\SymbolComparator</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolDistinctAny.h">
+      <Filter>Header Files\SymbolComparator</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolDistinctOne.h">
+      <Filter>Header Files\SymbolComparator</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolMatchAll.h">
+      <Filter>Header Files\SymbolComparator</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolMatchAny.h">
+      <Filter>Header Files\SymbolComparator</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolMatchInRange.h">
+      <Filter>Header Files\SymbolComparator</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolMatchOne.h">
+      <Filter>Header Files\SymbolComparator</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolMatchOutRange.h">
+      <Filter>Header Files\SymbolComparator</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Reporter.cpp">
@@ -70,6 +100,30 @@
     </ClCompile>
     <ClCompile Include="TransducerStaticWriter.cpp">
       <Filter>Source Files\Transducer</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolComparator.cpp">
+      <Filter>Source Files\SymbolComparator</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolDistinctAny.cpp">
+      <Filter>Source Files\SymbolComparator</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolDistinctOne.cpp">
+      <Filter>Source Files\SymbolComparator</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolMatchAll.cpp">
+      <Filter>Source Files\SymbolComparator</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolMatchAny.cpp">
+      <Filter>Source Files\SymbolComparator</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolMatchInRange.cpp">
+      <Filter>Source Files\SymbolComparator</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolMatchOne.cpp">
+      <Filter>Source Files\SymbolComparator</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolMatchOutRange.cpp">
+      <Filter>Source Files\SymbolComparator</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
