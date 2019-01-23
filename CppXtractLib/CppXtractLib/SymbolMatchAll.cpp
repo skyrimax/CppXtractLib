@@ -1,17 +1,14 @@
 #include "SymbolMatchAll.h"
 /*
 Frédéric Grondines
-2019-01-22
-Version 0.1
+2019-01-23
+Version 0.11
 */
 
-// 1) Pas de constructeur à implanter.
+//Pas de constructeur à implanter.
 
-// 2) Implantation de la fonction (purement virtuelle) compare()
-//    Ici on retourne toujours la valeur true
-//    puisque SymbolMatchAll est toujours vrai peu importe le symbole
-//    passé en paramètre.
 
+//La fonction virtuelle de cette classe retourne toujours vrai
 bool SymbolMatchAll::compare(symbol_t symbol) const
 {
 	return 1;
