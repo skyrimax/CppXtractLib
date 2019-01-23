@@ -1,3 +1,7 @@
+// SymbolComparator.h
+// Maxime Royal
+// Version 1.0
+
 #ifndef SYMBOL_COMPARATOR_H
 #define SYMBOL_COMPARATOR_H
 
