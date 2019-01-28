@@ -19,7 +19,7 @@ public:
 	SymbolDistinctAny() = default;
 	// Constructeur permettant de spécifier un symbole
 	// à ajouter à la liste.
-	SymbolDistinctAny(symbol_t symbol = '\0');
+	SymbolDistinctAny(symbol_t symbol);
 	// Constructeur permettant d'ajouter les symboles d'une
 	// liste prédéfinie.
 	SymbolDistinctAny(const std::list<symbol_t> & symbols);
