@@ -6,4 +6,7 @@
 //    Ici on retourne toujours la valeur true
 //    puisque SymbolMatchAll est toujours vrai peu importe le symbole
 //    passé en paramètre.
-
+bool SymbolMatchAll::compare(symbol_t symbol) const
+{
+	return true;
+}

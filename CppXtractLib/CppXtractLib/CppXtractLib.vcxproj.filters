@@ -28,6 +28,9 @@
     <Filter Include="Source Files\SymbolComparator">
       <UniqueIdentifier>{01fc2bfd-f777-4e7b-a0ad-95b9b6c17fc7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\FST">
+      <UniqueIdentifier>{b2d28770-3f29-44e6-a5ab-b4877d038455}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Reporter.h">
@@ -78,6 +81,12 @@
     <ClInclude Include="SymbolMatchOutRange.h">
       <Filter>Header Files\SymbolComparator</Filter>
     </ClInclude>
+    <ClInclude Include="Transition.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Reporter.cpp">
@@ -124,6 +133,12 @@
     </ClCompile>
     <ClCompile Include="SymbolMatchOutRange.cpp">
       <Filter>Source Files\SymbolComparator</Filter>
+    </ClCompile>
+    <ClCompile Include="Transition.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\FST</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

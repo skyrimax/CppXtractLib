@@ -1,8 +1,8 @@
 #include "SymbolMatchOne.h"
 
 // 1) Implantation du constructeur acceptant un symbole
-SymbolMatchOne::SymbolMatchOne(symbol_t symbol) 
-	: mSymbol{ symbol } 
+SymbolMatchOne::SymbolMatchOne(symbol_t symbol)
+	: mSymbol{ symbol }, SymbolComparator()
 {
 }
 
@@ -13,7 +13,7 @@ void SymbolMatchOne::setSymbol(symbol_t symbol)
 	mSymbol = symbol; 
 }
 
-// 2b) Implantation de la fonction membre pour lire le symbole de l'obket
+// 2b) Implantation de la fonction membre pour lire le symbole de l'objet
 //     (Accesseur)
 symbol_t SymbolMatchOne::symbol() const
 { 

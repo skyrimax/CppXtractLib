@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Reporter.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="Symbol.h" />
     <ClInclude Include="SymbolComparator.h" />
     <ClInclude Include="SymbolDistinctAny.h" />
@@ -131,9 +132,11 @@
     <ClInclude Include="TransducerRepeater.h" />
     <ClInclude Include="TransducerReporter.h" />
     <ClInclude Include="TransducerStaticWriter.h" />
+    <ClInclude Include="Transition.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Reporter.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="SymbolComparator.cpp" />
     <ClCompile Include="SymbolDistinctAny.cpp" />
     <ClCompile Include="SymbolDistinctOne.cpp" />
@@ -148,6 +151,7 @@
     <ClCompile Include="TransducerRepeater.cpp" />
     <ClCompile Include="TransducerReporter.cpp" />
     <ClCompile Include="TransducerStaticWriter.cpp" />
+    <ClCompile Include="Transition.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
