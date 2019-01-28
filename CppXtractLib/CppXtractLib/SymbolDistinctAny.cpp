@@ -9,7 +9,7 @@ SymbolDistinctAny::SymbolDistinctAny(symbol_t symbol)
 
 // 1b) Constructeur de la classe ici
 SymbolDistinctAny::SymbolDistinctAny(const std::list<symbol_t> & symbols)
-	: SymbolMatchAny(symbols)
+	: SymbolMatchAny()
 {
 }
 
