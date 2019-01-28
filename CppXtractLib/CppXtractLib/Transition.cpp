@@ -12,7 +12,7 @@
 //     N'oubliez pas d'initialiser les variables membres mNextState,
 //     mSymbolComparator
 Transition::Transition(State * nextState, SymbolComparator * symbolComparator) 
-	:mNextState{nullptr},mSymbolComparator{nullptr}
+	:mNextState{nextState},mSymbolComparator{symbolComparator}
 {
 }
 
