@@ -117,6 +117,14 @@
   <ItemGroup>
     <ClInclude Include="Reporter.h" />
     <ClInclude Include="Symbol.h" />
+    <ClInclude Include="SymbolComparator.h" />
+    <ClInclude Include="SymbolDistinctAny.h" />
+    <ClInclude Include="SymbolDistinctOne.h" />
+    <ClInclude Include="SymbolMatchAll.h" />
+    <ClInclude Include="SymbolMatchAny.h" />
+    <ClInclude Include="SymbolMatchInRange.h" />
+    <ClInclude Include="SymbolMatchOne.h" />
+    <ClInclude Include="SymbolMatchOutRange.h" />
     <ClInclude Include="Transducer.h" />
     <ClInclude Include="TransducerCounter.h" />
     <ClInclude Include="TransducerCounterReporter.h" />
@@ -126,6 +134,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Reporter.cpp" />
+    <ClCompile Include="SymbolComparator.cpp" />
+    <ClCompile Include="SymbolDistinctAny.cpp" />
+    <ClCompile Include="SymbolDistinctOne.cpp" />
+    <ClCompile Include="SymbolMatchAll.cpp" />
+    <ClCompile Include="SymbolMatchAny.cpp" />
+    <ClCompile Include="SymbolMatchInRange.cpp" />
+    <ClCompile Include="SymbolMatchOne.cpp" />
+    <ClCompile Include="SymbolMatchOutRange.cpp" />
     <ClCompile Include="Transducer.cpp" />
     <ClCompile Include="TransducerCounter.cpp" />
     <ClCompile Include="TransducerCounterReporter.cpp" />
