@@ -28,6 +28,15 @@
     <Filter Include="Source Files\SymbolComparator">
       <UniqueIdentifier>{1aa6cf47-552d-478a-a07d-8dd7fbaa83a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\FST">
+      <UniqueIdentifier>{76277176-d851-4564-aba4-5a0c707e92ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RW">
+      <UniqueIdentifier>{228a0317-f90d-4ba8-9fd6-b9b4c26b39ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RW">
+      <UniqueIdentifier>{da0c4ec5-9645-461c-9ffd-a692640e421b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Reporter.h">
@@ -78,6 +87,39 @@
     <ClInclude Include="SymbolMatchOutRange.h">
       <Filter>Header Files\SymbolComparators</Filter>
     </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="Transition.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="CppXtract.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="FST.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Header Files\RW</Filter>
+    </ClInclude>
+    <ClInclude Include="FileWriter.h">
+      <Filter>Header Files\RW</Filter>
+    </ClInclude>
+    <ClInclude Include="Reader.h">
+      <Filter>Header Files\RW</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenWriter.h">
+      <Filter>Header Files\RW</Filter>
+    </ClInclude>
+    <ClInclude Include="StringReader.h">
+      <Filter>Header Files\RW</Filter>
+    </ClInclude>
+    <ClInclude Include="StringWriter.h">
+      <Filter>Header Files\RW</Filter>
+    </ClInclude>
+    <ClInclude Include="Writer.h">
+      <Filter>Header Files\RW</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Reporter.cpp">
@@ -124,6 +166,39 @@
     </ClCompile>
     <ClCompile Include="SymbolMatchOutRange.cpp">
       <Filter>Source Files\SymbolComparator</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="Transition.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="CppXtract.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="FST.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files\RW</Filter>
+    </ClCompile>
+    <ClCompile Include="FileWriter.cpp">
+      <Filter>Source Files\RW</Filter>
+    </ClCompile>
+    <ClCompile Include="Reader.cpp">
+      <Filter>Source Files\RW</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenWriter.cpp">
+      <Filter>Source Files\RW</Filter>
+    </ClCompile>
+    <ClCompile Include="StringReader.cpp">
+      <Filter>Source Files\RW</Filter>
+    </ClCompile>
+    <ClCompile Include="StringWriter.cpp">
+      <Filter>Source Files\RW</Filter>
+    </ClCompile>
+    <ClCompile Include="Writer.cpp">
+      <Filter>Source Files\RW</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
