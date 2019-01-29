@@ -31,6 +31,18 @@
     <Filter Include="Source Files\FST">
       <UniqueIdentifier>{ba5ec5d8-f081-40d3-8c82-9e6c66777b9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Writer">
+      <UniqueIdentifier>{0585d972-af6b-42c5-bd19-a2dd73c929de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Reader">
+      <UniqueIdentifier>{f632fa15-1af8-4061-9b67-52ad9d3709a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Writer">
+      <UniqueIdentifier>{2fb29860-d035-4b00-b6b3-223e8bfcbe0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Reader">
+      <UniqueIdentifier>{3a88bbf6-2fe6-429b-8d62-90042e24a523}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Reporter.h">
@@ -87,6 +99,33 @@
     <ClInclude Include="Transition.h">
       <Filter>Header Files\FST</Filter>
     </ClInclude>
+    <ClInclude Include="FileWriter.h">
+      <Filter>Header Files\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenWriter.h">
+      <Filter>Header Files\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="StringWriter.h">
+      <Filter>Header Files\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="Writer.h">
+      <Filter>Header Files\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="Reader.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="StringReader.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="CppXtract.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="FST.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Reporter.cpp">
@@ -138,6 +177,33 @@
       <Filter>Source Files\FST</Filter>
     </ClCompile>
     <ClCompile Include="Transition.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="FileWriter.cpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenWriter.cpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="StringWriter.cpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="Writer.cpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="Reader.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="StringReader.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="CppXtract.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="FST.cpp">
       <Filter>Source Files\FST</Filter>
     </ClCompile>
   </ItemGroup>

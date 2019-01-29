@@ -115,8 +115,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CppXtract.h" />
+    <ClInclude Include="FileReader.h" />
+    <ClInclude Include="FileWriter.h" />
+    <ClInclude Include="FST.h" />
+    <ClInclude Include="Reader.h" />
     <ClInclude Include="Reporter.h" />
+    <ClInclude Include="ScreenWriter.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="StringReader.h" />
+    <ClInclude Include="StringWriter.h" />
     <ClInclude Include="Symbol.h" />
     <ClInclude Include="SymbolComparator.h" />
     <ClInclude Include="SymbolDistinctAny.h" />
@@ -133,10 +141,19 @@
     <ClInclude Include="TransducerReporter.h" />
     <ClInclude Include="TransducerStaticWriter.h" />
     <ClInclude Include="Transition.h" />
+    <ClInclude Include="Writer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CppXtract.cpp" />
+    <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="FileWriter.cpp" />
+    <ClCompile Include="FST.cpp" />
+    <ClCompile Include="Reader.cpp" />
     <ClCompile Include="Reporter.cpp" />
+    <ClCompile Include="ScreenWriter.cpp" />
     <ClCompile Include="State.cpp" />
+    <ClCompile Include="StringReader.cpp" />
+    <ClCompile Include="StringWriter.cpp" />
     <ClCompile Include="SymbolComparator.cpp" />
     <ClCompile Include="SymbolDistinctAny.cpp" />
     <ClCompile Include="SymbolDistinctOne.cpp" />
@@ -152,6 +169,7 @@
     <ClCompile Include="TransducerReporter.cpp" />
     <ClCompile Include="TransducerStaticWriter.cpp" />
     <ClCompile Include="Transition.cpp" />
+    <ClCompile Include="Writer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
