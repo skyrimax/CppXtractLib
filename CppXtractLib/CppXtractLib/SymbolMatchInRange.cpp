@@ -38,5 +38,5 @@ void SymbolMatchInRange::setRange(symbol_t firstSymbol, symbol_t lastSymbol)
 // 4) Implantation de la fonction (purement virtuelle) compare()
 bool SymbolMatchInRange::compare(symbol_t symbol) const
 {
-	return symbol >= mFirstSymbol and symbol <= mLastSymbol;
+	return ((symbol >= mFirstSymbol) and (symbol <= mLastSymbol));
 }

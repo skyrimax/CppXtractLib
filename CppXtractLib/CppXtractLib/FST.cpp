@@ -159,6 +159,7 @@ std::list<bool> FST::processFromStringToString(const std::string & inputString, 
 
 	std::list<bool> res{ process(stringreader, stringwriter, optionInfo) };
 	outputString = stringwriter.string();
+
 	return res;
 	// S'inspirer de processFromFileToScreen et processFromFileToString 
         // pour coder cette fonction membre

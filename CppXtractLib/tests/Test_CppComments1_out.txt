@@ -1,0 +1,20 @@
+Line no :     1   [C-style]
+/* 
+ * une console Windows.
+ */
+
+
+
+Informations globales
+- - - - - - - - - - - - - - - - - - - - - - - - - - -
+ - Statistiques generales :
+   - espaces : 6
+   - lignes  : 5
+   - autres  : 29
+ - Litteraux : 
+   - charactere            : 0
+   - chaînes de caracteres : 0
+ - Commentaires : 
+   - style C   : 1
+   - style C++ : 0
+- - - - - - - - - - - - - - - - - - - - - - - - - - -
