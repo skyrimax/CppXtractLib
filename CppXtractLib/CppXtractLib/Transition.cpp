@@ -68,10 +68,10 @@ bool Transition::isTransiting(symbol_t symbol) const
 // 8) Exécuter les actions associées à la transition.
 std::string Transition::transduce(symbol_t symbol)
 {
-	std::string str{ '\0' };
+	std::string str{ "" };
 	for (auto const & t : mTransducers)
 	{
-		str + t->transduce(symbol);
+		str += t->transduce(symbol);
 	}
 
 	return str;

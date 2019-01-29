@@ -224,6 +224,11 @@ void CppXtract::initialize()
 	mTransducerCppStyleCommentCounter->reset();
 	mTransducerLiteralStringCounter->reset();
 	mTransducerLiteralCharCounter->reset();
+	//Ajouté par Maxime Royal
+	mTransducerStartBySpaceCounter->reset();
+	mTransducerStartByLineCounter->reset();
+	mTransducerStartByCharCounter->reset();
+	//Fin des ajouts
 }
 
 void CppXtract::writeOptionInfo(Writer & writer)
