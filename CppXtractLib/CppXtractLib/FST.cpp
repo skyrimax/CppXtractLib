@@ -17,7 +17,7 @@
 //    mStates
 FST::~FST()
 {
-	for (auto & ss : mStates)
+	for (auto ss : mStates)
 	{
 		delete ss;
 	}
@@ -38,6 +38,11 @@ void FST::addState(State * state)
 		}
 	}
 	mStates.push_back(state);
+	
+	//Débur de copiage de fonction du prof
+	/*std::list<State*>::iterator it;
+	it = std::find(mStates.begin(), mStates.end(), state);
+	if (it == mStates.end())*/
 }
 	// Utiliser une boucle for (par exemple) pour détecter les doublons
 	// Si tout va bien, ajouter state dans la liste de mStates avec sa

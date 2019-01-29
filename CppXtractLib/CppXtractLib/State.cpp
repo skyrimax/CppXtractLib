@@ -37,7 +37,7 @@ void State::setAccepting(bool accepting)
 //            fonction membre
 void State::addTransition(Transition * transition)
 {
-	for (auto const & t : mTransitions) {
+	for (auto & t : mTransitions) {
 		if (t == transition) {
 			return;
 		}

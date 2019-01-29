@@ -26,11 +26,12 @@ Transition::Transition(State * nextState, SymbolComparator * symbolComparator)
 
 Transition::~Transition()
 {
+	delete mSymbolComparator;
 	for (auto & transducer : mTransducers)
 	{
 		delete transducer;
 	}
-	delete mSymbolComparator;
+	
 }
 
 // 2) Retouner le contenu de mNextState qui représente l'état
@@ -59,7 +60,9 @@ void Transition::setNextState(State * state)
 //    de symboles de la transition
 void Transition::setComparator(SymbolComparator * compareSymbol)
 {
+	delete mSymbolComparator;
 	mSymbolComparator = compareSymbol;
+	
 }
 
 // 6) Ajouter un transducteur dans la liste des transducteurs
@@ -70,7 +73,7 @@ void Transition::setComparator(SymbolComparator * compareSymbol)
 //            fonction membre
 void Transition::addTransducer(Transducer * transducer)
 {
-	for (auto const & t : mTransducers) {
+	for (auto & t : mTransducers) {
 		if (t == transducer) {
 			return;
 		}
@@ -93,7 +96,7 @@ bool Transition:: isTransiting(symbol_t symbol) const
 std::string Transition::transduce(symbol_t symbol)
 {
 	std::string str;
-	for (auto & transducer : mTransducers)
+	for (auto transducer : mTransducers)
 	{
 		str += transducer ->transduce(symbol);	
 	}

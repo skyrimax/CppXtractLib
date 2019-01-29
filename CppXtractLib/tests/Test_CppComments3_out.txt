@@ -1,0 +1,16 @@
+Line no :     1   [C++-style]
+//T e s tÿ
+
+Informations globales
+- - - - - - - - - - - - - - - - - - - - - - - - - - -
+ - Statistiques generales :
+   - espaces : 3
+   - lignes  : 1
+   - autres  : 12
+ - Litteraux : 
+   - charactere            : 0
+   - chaînes de caracteres : 0
+ - Commentaires : 
+   - style C   : 0
+   - style C++ : 1
+- - - - - - - - - - - - - - - - - - - - - - - - - - -
