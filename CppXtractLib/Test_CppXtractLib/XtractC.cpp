@@ -71,7 +71,7 @@ int main(int argc, char **argv)
 	acceptingStates = cppXtract.processFromStringToString(buffer.str(), testString, true);
 	// Tester l'entrée chaîne de caractères et sortie vers la chaîne de caractères
 	acceptingStates = cppXtract.processFromStringToFile(buffer.str(), fullOutputName, true);
-
+	
 
 	//StringWriter * w{ dynamic_cast<StringWriter*>(writer) };
 	//if (w) {
