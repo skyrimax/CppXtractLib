@@ -1,0 +1,15 @@
+
+
+Informations globales
+- - - - - - - - - - - - - - - - - - - - - - - - - - -
+ - Statistiques generales :
+   - espaces : 0
+   - lignes  : 1
+   - autres  : 0
+ - Litteraux : 
+   - charactere            : 0
+   - chaînes de caracteres : 0
+ - Commentaires : 
+   - style C   : 0
+   - style C++ : 0
+- - - - - - - - - - - - - - - - - - - - - - - - - - -

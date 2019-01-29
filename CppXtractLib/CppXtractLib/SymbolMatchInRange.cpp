@@ -3,17 +3,14 @@
 
 // 1a) Constructeur de la classe ici
 SymbolMatchInRange::SymbolMatchInRange()
-	: SymbolComparator()
+	: mFirstSymbol {'\0'}, mLastSymbol{ '\0' }
 {
-	mFirstSymbol = '\0';
-	mLastSymbol = '\0';
 }
 
 // 1b) Constructeur de la classe ici
 SymbolMatchInRange::SymbolMatchInRange(symbol_t firstSymbol, symbol_t lastSymbol)
+	: mFirstSymbol{ firstSymbol }, mLastSymbol{ firstSymbol }
 {
-	mFirstSymbol = firstSymbol;
-	mLastSymbol = lastSymbol;
 }
 
 

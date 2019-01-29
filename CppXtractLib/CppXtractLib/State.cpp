@@ -51,7 +51,7 @@ void State::addTransition(Transition * transition)
 Transition* State::isTransiting(symbol_t symbol) const
 {
 	for (auto & t : mTransitions) {
-		if (t == isTransiting(symbol)) {
+		if (t -> isTransiting(symbol)) {
 			return t;
 		}
 	}

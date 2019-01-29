@@ -26,7 +26,7 @@ Transition::~Transition()
 {
 	delete mSymbolComparator;
 	
-	for (auto & transducer : mTransducers) {
+	for (auto transducer : mTransducers) {
 		delete transducer;
 	}
 }
@@ -67,7 +67,7 @@ void Transition::setComparator(SymbolComparator * compareSymbol)
 //            fonction membre
 void Transition::addTransducer(Transducer * transducer)
 {
-	for (auto & t : mTransducers) {
+	for (auto t : mTransducers) {
 		if (t == transducer) {
 			return;
 		}
@@ -90,7 +90,7 @@ bool Transition::isTransiting(symbol_t symbol) const
 std::string Transition::transduce(symbol_t symbol)
 {
 	std::string str;
-	for (auto & transducer : mTransducers) {
+	for (auto transducer : mTransducers) {
 		str+=transducer->transduce(symbol);
 		
 	}
