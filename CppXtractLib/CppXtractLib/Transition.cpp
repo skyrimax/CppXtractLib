@@ -6,9 +6,10 @@
 
 // 1a) Implanter le constructeur
 Transition::Transition(State * nextState, SymbolComparator * symbolComparator)
+	:mNextState{ nextState }, mSymbolComparator{ symbolComparator }
 {
-	mNextState = nextState;
-	mSymbolComparator = symbolComparator;
+	//mNextState = nextState;
+	//mSymbolComparator = symbolComparator;
 }
 
 // 1b) Implanter le destructeur
