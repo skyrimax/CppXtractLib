@@ -1,7 +1,6 @@
 #include "SymbolDistinctAny.h"
 
 // 1a) Constructeur de la classe ici
-//     Le constructeur à implanter est:
 SymbolDistinctAny::SymbolDistinctAny(symbol_t symbol)
 	: SymbolMatchAny(symbol)
 {

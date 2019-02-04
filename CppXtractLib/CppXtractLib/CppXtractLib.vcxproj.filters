@@ -28,6 +28,21 @@
     <Filter Include="Source Files\SymbolComparator">
       <UniqueIdentifier>{1aa6cf47-552d-478a-a07d-8dd7fbaa83a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\FST">
+      <UniqueIdentifier>{3dea9d0b-fc01-41cc-b5c0-ebf836f928e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Writer">
+      <UniqueIdentifier>{18300e1e-bf4f-4796-99be-de9ae4cb432a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Reader">
+      <UniqueIdentifier>{8b087f7d-567e-45a8-bc60-cf8c35288f53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Writer">
+      <UniqueIdentifier>{e013b558-879b-470c-9c53-f4f5d89f1061}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Reader">
+      <UniqueIdentifier>{df0f9819-bc7b-4775-a233-e56a3878f969}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Reporter.h">
@@ -78,6 +93,39 @@
     <ClInclude Include="SymbolMatchOutRange.h">
       <Filter>Header Files\SymbolComparators</Filter>
     </ClInclude>
+    <ClInclude Include="Transition.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="FileWriter.h">
+      <Filter>Header Files\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenWriter.h">
+      <Filter>Header Files\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="StringWriter.h">
+      <Filter>Header Files\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="Writer.h">
+      <Filter>Header Files\Writer</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="Reader.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="StringReader.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="CppXtract.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="FST.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Reporter.cpp">
@@ -124,6 +172,39 @@
     </ClCompile>
     <ClCompile Include="SymbolMatchOutRange.cpp">
       <Filter>Source Files\SymbolComparator</Filter>
+    </ClCompile>
+    <ClCompile Include="Transition.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="FileWriter.cpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenWriter.cpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="StringWriter.cpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="Writer.cpp">
+      <Filter>Source Files\Writer</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="Reader.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="StringReader.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="CppXtract.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="FST.cpp">
+      <Filter>Source Files\FST</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -30,13 +30,13 @@ void SymbolMatchInRange::range(symbol_t & firstSymbol, symbol_t & lastSymbol) co
 //    mFirstSymbol et mLastSymbol
 void SymbolMatchInRange::setRange(symbol_t firstSymbol, symbol_t lastSymbol)
 {
-	mFirstSymbol = firstSymbol;
-	mLastSymbol = lastSymbol;
+	mFirstSymbol = std::min(firstSymbol, lastSymbol);
+	mLastSymbol = std::max(firstSymbol,lastSymbol);
 }
 
 
 // 4) Implantation de la fonction (purement virtuelle) compare()
 bool SymbolMatchInRange::compare(symbol_t symbol) const
 {
-	return symbol >= mFirstSymbol and symbol <= mLastSymbol;
+	return (symbol >= mFirstSymbol && symbol <= mLastSymbol);
 }
