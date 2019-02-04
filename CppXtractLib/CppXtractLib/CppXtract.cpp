@@ -224,6 +224,16 @@ void CppXtract::initialize()
 	mTransducerCppStyleCommentCounter->reset();
 	mTransducerLiteralStringCounter->reset();
 	mTransducerLiteralCharCounter->reset();
+	
+	// ajouts de Max - Trop fort!
+	mTransducerStartBySpaceCounter->reset();
+
+
+	mTransducerStartByLineCounter->reset();
+
+
+	mTransducerStartByCharCounter->reset();
+
 }
 
 void CppXtract::writeOptionInfo(Writer & writer)

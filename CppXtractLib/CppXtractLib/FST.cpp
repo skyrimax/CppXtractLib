@@ -196,11 +196,13 @@ std::list<bool> FST::processFromStringToFile(const std::string & inputString, co
 //    prochain état comme l'état courant (actuel).
 void FST::processSymbol(Reader & reader, Writer & writer) {
 	symbol_t symbol{ reader.readOne() };
-	for (auto & currentState : mCurrentStates) {
-		Transition* transition{ currentState->isTransiting(symbol) };
-		if (transition) {
-			writer.write(transition->transduce(symbol));
-			currentState = transition->nextState();
+	if (symbol != -1) { // patch
+		for (auto & currentState : mCurrentStates) {
+			Transition* transition{ currentState->isTransiting(symbol) };
+			if (transition) {
+				writer.write(transition->transduce(symbol));
+				currentState = transition->nextState();
+			}
 		}
 	}
 }

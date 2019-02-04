@@ -105,7 +105,7 @@ Informations globales
  - Statistiques generales :
    - espaces : 361
    - lignes  : 88
-   - autres  : 1715
+   - autres  : 1709
  - Litteraux : 
    - charactere            : 10
    - chaînes de caracteres : 8
