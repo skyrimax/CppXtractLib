@@ -1,0 +1,37 @@
+1.
+
+	a)
+
+	Exemple de masquage public dans Reporter.h ligne 19
+
+	public:
+
+	b)
+
+	Exemple de masquage
+
+	c)
+
+	d)
+
+	e)
+
+	f)
+
+	g)
+
+	h)
+
+	i)
+
+	j)
+
+	k)
+
+2.
+
+	a)
+
+	b)
+
+3.
