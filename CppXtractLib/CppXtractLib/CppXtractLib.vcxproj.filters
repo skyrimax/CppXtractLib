@@ -37,6 +37,9 @@
     <Filter Include="Source Files\RW">
       <UniqueIdentifier>{da0c4ec5-9645-461c-9ffd-a692640e421b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Documentation">
+      <UniqueIdentifier>{d2c6c6f7-849b-4c3b-a2d5-afab2f3c3a6b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Reporter.h">
@@ -200,5 +203,10 @@
     <ClCompile Include="Writer.cpp">
       <Filter>Source Files\RW</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Rapport.txt">
+      <Filter>Source Files\Documentation</Filter>
+    </Text>
   </ItemGroup>
 </Project>

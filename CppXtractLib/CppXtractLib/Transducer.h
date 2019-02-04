@@ -24,7 +24,7 @@ public:
 	virtual ~Transducer() = default;
 	// Constructeur de copie par défaut disponible.
 	Transducer(const Transducer & transducer) = default;
-	// Opérateur d'assignation de copie par défaut disponible.
+	// Surcharge d'opérateur
 	Transducer& operator=(const Transducer & transducer) = default;
 
 	// Effectue l'action requise et retourne, si applicable, 
