@@ -1,0 +1,84 @@
+1. Veuillez indiquer où se trouve dans votre projet un exemple de chacun des concepts suivants (en indiquant le concept, le nom du fichier et le numéro de ligne) :
+a. un exemple de masquage public;
+Fichier : TransducerCounter.cpp  Ligne : 25-29
+std::string TransducerCounter::transduce(symbol_t symbol)
+{
+	++mCount;
+	return std::string("");
+}
+La classe TransducerCounter a hérité de la fonction tranducer de son père, mais on a créer une fonction du même nom en public.
+
+b. un exemple de masquage protégé;
+Fichier : StringReader.cpp Ligne : 20-23
+symbol_t StringReader::readOneFromSource() 
+{ 
+	return mInputString.get(); 
+}
+StringReader avait obtenu par héritage une fonction readOneFromSource, mais on a déclaré une fonction du même nom dans la zone protégée.
+
+c. un exemple de masquage privé;
+
+
+d. un exemple de surcharge de fonction;
+
+
+
+
+e. un exemple de constructeur;
+Fichier : TransducerCounter.cpp Ligne : 7-10
+TransducerCounter::TransducerCounter()
+	: Transducer(), mCount{ 0 }
+{
+}
+On initialise mCount à 0 et on créer la classe parent (Tranducer)
+
+f. un exemple de destructeur;
+Fichier : Transition.cpp Ligne : 16-24
+Transition::~Transition()
+{
+	delete mSymbolComparator;
+
+	for (auto const & t : mTransducers)
+	{
+		delete t;
+	}
+}
+Le destructeur va effacer la mémoire de la liste mTransducers.
+
+g. un exemple de constructeur de copie;
+
+
+h. un exemple d’opérateur d’assignation de copie;
+
+
+i. un exemple d’héritage;
+
+
+j. un exemple de redéfinition de fonction de classe;
+Fichier : TransduceCounter.h Ligne : 35
+std::string transduce(symbol_t symbol) override;
+
+La fonction Transduce de la classe TransducerCounter redéfinit la fonction Transducer de classe parent Tranducer.
+
+k. un exemple où la redéfinition d’une fonction de classe enfant appelle la fonction équivalente du parent.
+Fichier : SymbolDistinctOne.cpp Ligne : 10-13
+bool SymbolDistinctOne::compare(symbol_t symbol) const
+{
+	return !SymbolMatchOne::compare(symbol);
+}
+
+La fonction compare de la classe SymbolDistinctOne retourne l'inverse de la fonction compare de la classe parent (SymbolMatchOne).
+
+
+
+2. De façon concise et précise, veuillez expliquer dans vos mots les concepts suivants :
+a. Pourquoi et comment vous faites la libération de la mémoire des objets alloués dynamiquement. Prenez le cas précis de la classe State qui libère les objets Transition.
+
+Pour libérer la mémoire d'un objet on doit utiliser le mot clé "delete". Dans le cas des objets Transition, ils étaient contenu dans une liste, on a donc parcouru la liste au complet et on a utiliser delete à chaque objet.
+
+b. Dans la section Fonctions obligatoires, il est stipulé que certaines fonctions requièrent des considérations supplémentaires. Expliquez pourquoi c’est le cas pour les classes identifiées. Aussi, expliquer la logique d’une solution pouvant résoudre ce problème et comment il serait possible de l’implémenter.
+
+
+
+
+3. Optionnellement, une section Recommandations pour indiquer toutes les coquilles que vous avez pu trouver dans cet énoncé et le code source ainsi que des suggestions (merci pour votre participation).
