@@ -27,6 +27,9 @@ void SymbolMatchInRange::range(symbol_t & firstSymbol, symbol_t & lastSymbol) co
 //    mFirstSymbol et mLastSymbol
 void SymbolMatchInRange::setRange(symbol_t firstSymbol, symbol_t lastSymbol)
 {
+	// mFirstSymbol = std::min(firstSymbol, lastSymbol);
+	// mLastSymbol = std::max(firstSymbol, lastSymbol);
+	
 	mFirstSymbol = firstSymbol;
 	mLastSymbol = lastSymbol;
 }

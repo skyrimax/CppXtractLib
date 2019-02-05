@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 	// Indiquer le chemin du fichier de test
 	const string filePath("C:\\Users\\GUI\\Desktop\\GPA434\\Laboratoires\\GitHub\\skyrimax\\CppXtractLib\\CppXtractLib\\tests\\");
 	// Nom du fichier de test
-	const string inputFileName("Test_CppComments2");
+	const string inputFileName("Test_CppComments1");
 	// Extension du fichier de test
 	const string inputFileExt("cpp");
 	// Extension du fichier de sortie

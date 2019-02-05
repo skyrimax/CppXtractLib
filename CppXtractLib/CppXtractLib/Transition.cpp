@@ -67,6 +67,12 @@ void Transition::setComparator(SymbolComparator * compareSymbol)
 //            fonction membre
 void Transition::addTransducer(Transducer * transducer)
 {
+	// std::list<Transducer*>::iterator it;
+	// it=std::find(mTransducers.begin(), mTransducers.end(), transducer);
+	// if (it == mTransducers.end())
+	//		mTransducers.push_back(transducer);
+	
+	
 	for (auto t : mTransducers) {
 		if (t == transducer) {
 			return;

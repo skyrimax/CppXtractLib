@@ -1,22 +1,53 @@
 1.
 
-	a)
+	a) Exemple de masquage public
 
-	Exemple de masquage public dans Reporter.h ligne 19
+	Fichier: Reporter.h ligne 19
 
 	public:
 
-	b)
+	b) Exemple de masquage protégé
 
-	Exemple de masquage
+	Fichier: TransducerCounter ligne 37
 
-	c)
+	protected:
 
-	d)
+	c) Exemple de masquage privé
+	
+	Fichier: Transition.h ligne 52
 
-	e)
+	private:
 
-	f)
+	d) Exemple de surcharge de fonction 
+	
+	Fichier: FileWriter.h lignes 32-33 (fonction "write")
+
+	void write(symbol_t symbol) override;
+	void write(const std::string & text) override;
+
+	e) Exemple de constructeur
+	
+	Fichier: SymbolDinstinctAny.cpp lignes 5-8
+
+	SymbolDistinctAny::SymbolDistinctAny(symbol_t symbol)
+	: SymbolMatchAny(symbol)
+	{
+	
+	}
+	
+	f) Exemple de destructeur
+
+	Fichier: FST.cpp Lignes 18-26
+
+	FST::~FST()
+	{
+       // utiliser une boucle for et l'instruction delete pour effacer
+       // les états qui se trouvent dans mStates
+
+	for (auto & state : mStates) {
+		delete state;
+	}
+}
 
 	g)
 
