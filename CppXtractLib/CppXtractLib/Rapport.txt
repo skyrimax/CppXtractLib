@@ -58,7 +58,8 @@ Veuillez  indiquer  où  se  trouve  dans  votre projetun  exemple  de chacun  de
 	b. Dans la section Fonctions obligatoires, il est stipulé que certaines fonctions requièrent des considérations supplémentaires. Expliquez pourquoi c'est le cas pour les classes identifiées.
 	   Aussi, expliquer la logique d'une solution pouvant résoudre ce problème et comment il serait possible de l'implémenter.
 			Les fonctions obligatoires requièrent des considérations supplémentaire. La constructeur de copie ainsi que les opérateurs d'assignation de copie doivent être "= delete".
-			Cette opération assure que les fonctions ne soient pas disponible.
+			Cette opération assure que les fonctions ne soient pas disponible. En les mettant "=delete", le compilateur ne laissera aucun autre objet utilisé
+			les opérateurs d'assignation de copie et les constructeurs de copie.
 
 
 3. Optionnellement, une section Recommandations pour indiquer toutes les coquilles que vous avez pu trouver dans cet énoncé et le code soure ainsi que des suggestions.
