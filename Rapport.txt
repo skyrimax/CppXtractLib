@@ -58,13 +58,18 @@ Transition::~Transition()
 Le destructeur va effacer la mémoire de la liste mTransducers.
 
 g. un exemple de constructeur de copie;
-
+Fichier : Transducer.h ligne : 26
+Transducer(const Transducer & transducer) = default;
 
 h. un exemple d’opérateur d’assignation de copie;
-
+Fichier : Transducer.h ligne : 28
+Transducer& operator=(const Transducer & transducer) = default;
 
 i. un exemple d’héritage;
+Fichier : TransducerCounter.h ligne : 15
+class TransducerCounter : public Transducer
 
+Dans la déclaration de la classe TransducerCounter, celle-ci hérite du contenue de la classe parent Transducer dans sa section publique.
 
 j. un exemple de redéfinition de fonction de classe;
 Fichier : TransduceCounter.h Ligne : 35
