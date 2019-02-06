@@ -1,4 +1,4 @@
-1. Veuillez indiquer où se trouve dans votre projet un exemple de chacun des concepts suivants (en indiquant le concept, le nom du fichier et le numéro de ligne) :
+1. Veuillez indiquer oÃ¹ se trouve dans votre projet un exemple de chacun des concepts suivants (en indiquant le concept, le nom du fichier et le numÃ©ro de ligne) :
 a. un exemple de masquage public;
 Fichier : TransducerCounter.cpp  Ligne : 25-29
 std::string TransducerCounter::transduce(symbol_t symbol)
@@ -6,18 +6,23 @@ std::string TransducerCounter::transduce(symbol_t symbol)
 	++mCount;
 	return std::string("");
 }
-La classe TransducerCounter a hérité de la fonction tranducer de son père, mais on a créer une fonction du même nom en public.
+La classe TransducerCounter a hÃ©ritÃ© de la fonction tranducer de son pÃ¨re, mais on a crÃ©er une fonction du mÃªme nom en public.
 
-b. un exemple de masquage protégé;
+b. un exemple de masquage protÃ©gÃ©;
 Fichier : StringReader.cpp Ligne : 20-23
 symbol_t StringReader::readOneFromSource() 
 { 
 	return mInputString.get(); 
 }
-StringReader avait obtenu par héritage une fonction readOneFromSource, mais on a déclaré une fonction du même nom dans la zone protégée.
+StringReader avait obtenu par hÃ©ritage une fonction readOneFromSource, mais on a dÃ©clarÃ© une fonction du mÃªme nom dans la zone protÃ©gÃ©e.
 
-c. un exemple de masquage privé;
+c. un exemple de masquage privÃ©;
+Fichier  : FTS.h ligne : 43-44
 
+virtual void initialize() {}
+virtual void writeOptionInfo(Writer & writer) {}
+
+Ces deux fonction vont Ãªtre hÃ©ritÃ©e par les enfants de et ceux-ci vont devoir les implÃ©menter eux-mÃªmes.
 
 d. un exemple de surcharge de fonction;
 
@@ -30,7 +35,7 @@ TransducerCounter::TransducerCounter()
 	: Transducer(), mCount{ 0 }
 {
 }
-On initialise mCount à 0 et on créer la classe parent (Tranducer)
+On initialise mCount Ã  0 et on crÃ©er la classe parent (Tranducer)
 
 f. un exemple de destructeur;
 Fichier : Transition.cpp Ligne : 16-24
@@ -43,24 +48,24 @@ Transition::~Transition()
 		delete t;
 	}
 }
-Le destructeur va effacer la mémoire de la liste mTransducers.
+Le destructeur va effacer la mÃ©moire de la liste mTransducers.
 
 g. un exemple de constructeur de copie;
 
 
-h. un exemple d’opérateur d’assignation de copie;
+h. un exemple dâ€™opÃ©rateur dâ€™assignation de copie;
 
 
-i. un exemple d’héritage;
+i. un exemple dâ€™hÃ©ritage;
 
 
-j. un exemple de redéfinition de fonction de classe;
+j. un exemple de redÃ©finition de fonction de classe;
 Fichier : TransduceCounter.h Ligne : 35
 std::string transduce(symbol_t symbol) override;
 
-La fonction Transduce de la classe TransducerCounter redéfinit la fonction Transducer de classe parent Tranducer.
+La fonction Transduce de la classe TransducerCounter redÃ©finit la fonction Transducer de classe parent Tranducer.
 
-k. un exemple où la redéfinition d’une fonction de classe enfant appelle la fonction équivalente du parent.
+k. un exemple oÃ¹ la redÃ©finition dâ€™une fonction de classe enfant appelle la fonction Ã©quivalente du parent.
 Fichier : SymbolDistinctOne.cpp Ligne : 10-13
 bool SymbolDistinctOne::compare(symbol_t symbol) const
 {
@@ -71,14 +76,14 @@ La fonction compare de la classe SymbolDistinctOne retourne l'inverse de la fonc
 
 
 
-2. De façon concise et précise, veuillez expliquer dans vos mots les concepts suivants :
-a. Pourquoi et comment vous faites la libération de la mémoire des objets alloués dynamiquement. Prenez le cas précis de la classe State qui libère les objets Transition.
+2. De faÃ§on concise et prÃ©cise, veuillez expliquer dans vos mots les concepts suivants :
+a. Pourquoi et comment vous faites la libÃ©ration de la mÃ©moire des objets allouÃ©s dynamiquement. Prenez le cas prÃ©cis de la classe State qui libÃ¨re les objets Transition.
 
-Pour libérer la mémoire d'un objet on doit utiliser le mot clé "delete". Dans le cas des objets Transition, ils étaient contenu dans une liste, on a donc parcouru la liste au complet et on a utiliser delete à chaque objet.
+Pour libÃ©rer la mÃ©moire d'un objet on doit utiliser le mot clÃ© "delete". Dans le cas des objets Transition, ils Ã©taient contenu dans une liste, on a donc parcouru la liste au complet et on a utiliser delete Ã  chaque objet.
 
-b. Dans la section Fonctions obligatoires, il est stipulé que certaines fonctions requièrent des considérations supplémentaires. Expliquez pourquoi c’est le cas pour les classes identifiées. Aussi, expliquer la logique d’une solution pouvant résoudre ce problème et comment il serait possible de l’implémenter.
-
-
+b. Dans la section Fonctions obligatoires, il est stipulÃ© que certaines fonctions requiÃ¨rent des considÃ©rations supplÃ©mentaires. Expliquez pourquoi câ€™est le cas pour les classes identifiÃ©es. Aussi, expliquer la logique dâ€™une solution pouvant rÃ©soudre ce problÃ¨me et comment il serait possible de lâ€™implÃ©menter.
 
 
-3. Optionnellement, une section Recommandations pour indiquer toutes les coquilles que vous avez pu trouver dans cet énoncé et le code source ainsi que des suggestions (merci pour votre participation).
+
+
+3. Optionnellement, une section Recommandations pour indiquer toutes les coquilles que vous avez pu trouver dans cet Ã©noncÃ© et le code source ainsi que des suggestions (merci pour votre participation).
