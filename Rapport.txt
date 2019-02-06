@@ -1,20 +1,17 @@
 1. Veuillez indiquer où se trouve dans votre projet un exemple de chacun des concepts suivants (en indiquant le concept, le nom du fichier et le numéro de ligne) :
 a. un exemple de masquage public;
-Fichier : TransducerCounter.cpp  Ligne : 25-29
-std::string TransducerCounter::transduce(symbol_t symbol)
-{
-	++mCount;
-	return std::string("");
-}
-La classe TransducerCounter a hérité de la fonction tranducer de son père, mais on a créer une fonction du même nom en public.
+Fichier : Transducer.h  Ligne : 32
+
+virtual std::string transduce(symbol_t symbol) = 0;
+
+Cette fonction va être hérité par les enfants de Transducer. Ceux-ci sont oubligé d'implémenter leur version de cette fonction.
 
 b. un exemple de masquage protégé;
-Fichier : StringReader.cpp Ligne : 20-23
-symbol_t StringReader::readOneFromSource() 
-{ 
-	return mInputString.get(); 
-}
-StringReader avait obtenu par héritage une fonction readOneFromSource, mais on a déclaré une fonction du même nom dans la zone protégée.
+Fichier : Reader.h Ligne : 47
+
+virtual symbol_t readOneFromSource() = 0;
+
+Les enfants de Reader sont d'oubligé d'implémenter leur version de cette fonction qu'ils héritent de leur parent.
 
 c. un exemple de masquage privé;
 Fichier  : FTS.h ligne : 43-44
@@ -25,9 +22,19 @@ virtual void writeOptionInfo(Writer & writer) {}
 Ces deux fonction vont être héritée par les enfants de et ceux-ci vont devoir les implémenter eux-mêmes.
 
 d. un exemple de surcharge de fonction;
+Fichier : TransducerCounter.h ligne : 35
+std::string transduce(symbol_t symbol) override;
 
+Fichier : TransducerRepeater.h ligne : 27
+std::string transduce(symbol_t symbol) override;
 
+Fichier : TransducerReporter.h ligne : 40
+std::string transduce(symbol_t symbol) override;
 
+Fuchier : TransducerStaticWriter.h ligne : 28
+std::string transduce(symbol_t symbol);
+
+Toutes les enfant de la classe Transducer on leur propre version de la fonction transduce, ce qui permet de toujours appeler cette fonction, mais différentes actions sont exécuté selon le type d'objet dont elle est appelée.
 
 e. un exemple de constructeur;
 Fichier : TransducerCounter.cpp Ligne : 7-10
