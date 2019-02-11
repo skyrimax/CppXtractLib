@@ -99,4 +99,4 @@ b. Dans la section Fonctions obligatoires, il est stipulé que certaines fonctio
 
 
 3. Optionnellement, une section Recommandations pour indiquer toutes les coquilles que vous avez pu trouver dans cet énoncé et le code source ainsi que des suggestions (merci pour votre participation).
-Exécuter le code avant de le donner aux élèves.
+Exécuter le code avant de le donner aux élèves. (Free salt, do not take seriously) xP
