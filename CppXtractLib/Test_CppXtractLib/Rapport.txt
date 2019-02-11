@@ -44,25 +44,64 @@
        // utiliser une boucle for et l'instruction delete pour effacer
        // les états qui se trouvent dans mStates
 
-	for (auto & state : mStates) {
-		delete state;
+		for (auto & state : mStates) {
+			delete state;
+		}
 	}
-}
 
-	g)
+	g) Exemple d'un constructeur de copie
 
-	h)
+	Fichier: SymbolMatchAll.h lignes 15-20
 
-	i)
+	
+	SymbolMatchAll() = default;
+	
+	virtual ~SymbolMatchAll() = default;
+	
+	// Constructeur de copie
+	SymbolMatchAll(const SymbolMatchAll & symbComp) = default;
 
-	j)
+	h) Exemple d'opération d'assignation de copie
 
-	k)
+	Fichier: SymbolMatchAny.h ligne 27
 
-2.
+	// Opérateur d’assignation de copie par défaut disponible.
+	SymbolMatchAny& operator=(const SymbolMatchAny & symbComp) = default;
 
-	a)
+	i) Exemple d'héritage
 
-	b)
+	Fichier SymbolMatchOne.h ligne 11
 
-3.
+	class SymbolMatchOne : public SymbolComparator
+
+	j) Exemple de redéfinition de fonction de classe
+
+	Fichier: CppXtract.cpp lignes 40-42
+
+	mTransducerStartBySpaceCounter = new TransducerCounter();
+	mTransducerStartByLineCounter = new TransducerCounter();
+	mTransducerStartByCharCounter = new TransducerCounter();
+
+	k) Exemple de redéfinition de fonction de classe qui utilise la fonction parent
+
+	Fichier SymbolMatchInRange.cpp lignes 39-42
+
+	bool SymbolMatchInRange::compare(symbol_t symbol) const
+	{
+		return ((symbol >= mFirstSymbol) && (symbol <= mLastSymbol));
+	}
+
+2. Questions multiples:
+
+	a) D'abord, on doit toujours libérer la mémoire des objects créé dynamiquement.
+		C'est le principe même des fuites de mémoires.
+		L'objet d'une transition qui a mené à l'état doit être supprimé, car de nouvelles transitions seront alors disponibles.
+
+	b) Selon moi, il est important de spécifier qu'on ne peut pas créer de copie de ces objets, afin d'éviter de créer des doublons.
+	Ces doublons pourraient mélanger la machine d'état. De plus, on cherche à n'avoir qu'une seule machine d'état qui gère les états et transitions.
+
+3. Recommandations
+	Très satisfait des commentaires déjà inclus.
+	Beaucoup d'exemples sont sur le sites moodle.
+	Avant d'entamer la production du laboratoire 1, ce serait bien de faire de plus petits exemples, en classe!
+	Très bon travail de design, mais c'est très compliqué pour un débutant en C++.
