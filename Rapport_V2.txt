@@ -41,19 +41,12 @@ private:
 Ces deux variables sont dans la section privée de la classe State.
 
 d. Un exemple de surcharge de fonction:
-Fichier : TransducerCounter.h ligne : 35
-std::string transduce(symbol_t symbol) override;
+Fichier  : SymbolDistonctAny.h
 
-Fichier : TransducerRepeater.h ligne : 27
-std::string transduce(symbol_t symbol) override; ///wtf je comprends pas pourquoi override serait une surcharge alors que c'est =. ???
+SymbolDistinctAny(symbol_t symbol);
+SymbolDistinctAny(const std::list<symbol_t> & symbols);
 
-Fichier : TransducerReporter.h ligne : 40
-std::string transduce(symbol_t symbol) override;
-
-Fichier : TransducerStaticWriter.h ligne : 28
-std::string transduce(symbol_t symbol);
-
-Tous les enfants de la classe Transducer on leur propre version de la fonction transduce, ce qui permet de toujours appeler cette fonction, mais différentes actions sont exécutés selon le type d'objet dont elle est appelée.
+La même fonction est déclarée avec des paramètres différents
 
 e. Un exemple de constructeur:
 Fichier : TransducerCounter.cpp lignes : 7-10
