@@ -111,7 +111,8 @@ Aussi, expliquer la logique d’une solution pouvant résoudre ce problème et c
 
 Les fonctions obligatoires requièrent des considérations supplémentaires car le constructeur de copie ainsi que les opérateurs d'assignation de copie doivent être "= delete".
 Cette opération assure que les fonctions ne sont pas disponible. En les mettant "=delete", le compilateur ne laissera donc aucun autre objet utilisé les opérateurs d'assignation de copie et les constructeurs de copie.
-
+Exemple pour la classe FST: Il ne faut pas utiliser les fonctions qui gère la machine états, qui pourrait altérer la logique de la machine.
 
 3. Optionnellement, une section Recommandations pour indiquer toutes les coquilles que vous avez pu trouver dans cet énoncé et le code source ainsi que des suggestions (merci pour votre participation).
 Exécuter le code avant de le donner aux élèves. (Free salt, do not take seriously) xP  //À changer idéalement.
+Sur Moodle, on retrouve quelques exemples. Il serait intéressant de passer au travers de petits exemples avant d'entamer le laboratoire.
