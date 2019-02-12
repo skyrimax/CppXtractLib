@@ -43,6 +43,9 @@
     <Filter Include="Source Files\Reader">
       <UniqueIdentifier>{df0f9819-bc7b-4775-a233-e56a3878f969}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{98ce7f53-b4d8-492c-9fb8-7f1c05fbf41a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Reporter.h">
@@ -206,5 +209,10 @@
     <ClCompile Include="FST.cpp">
       <Filter>Source Files\FST</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Rapport.txt">
+      <Filter>Documentation</Filter>
+    </Text>
   </ItemGroup>
 </Project>
