@@ -12,54 +12,55 @@ Veuillez  indiquer  où  se  trouve  dans  votre projetun  exemple  de chacun  de
 
 
 	d.un exemple de surcharge de fonction;
-	FileReader() = default;
-	FileReader(const std::string & inputFileName);
+	---FileReader() = default;
+	---FileReader(const std::string & inputFileName);
+	--- 
 
 	e.un exemple de constructeur;
-	Transducer() = default;
+	---Transducer() = default;
 
 	f.un exemple de destructeur;
-	virtual ~Transducer() = default;
+	---virtual ~Transducer() = default;
 
 	g.un exemple de constructeur de copie
-	Transducer(const Transducer & transducer) = default;
+	---Transducer(const Transducer & transducer) = default;
 
 	h.un exemple d'opérateur d'assignation de copie;
-	Reader& operator=(const Reader & reader) = default;
+	---Reader& operator=(const Reader & reader) = default;
 
 	i.un exemple d'héritage;
-	Dans le .h
-		protected:
-		symbol_t mLastSymbol{ '\0' };
-	Dans le .cpp
-		symbol_t Reader::lastSymbol() const 
-		{ 
-			return mLastSymbol; 
-		}
+	--- Dans le reader.h
+	---		protected:
+	---		symbol_t mLastSymbol{ '\0' };
+	--- Dans le reader.cpp
+	---		symbol_t Reader::lastSymbol() const 
+	---		{ 
+	---			return mLastSymbol; 
+	---		}
 
 	j.un exemple de redéfinition de fonction de classe;
-		Dans Transducer.h
-			virtual std::string transduce(symbol_t symbol) = 0;
-		
-		Dans TransducerCounter.h
-			std::string transduce(symbol_t symbol) override;
+	---	Dans Transducer.h
+	---		virtual std::string transduce(symbol_t symbol) = 0;
+	---	
+	---	Dans TransducerCounter.h
+	---		std::string transduce(symbol_t symbol) override;
 
 	k.un exemple où la redéfinition d’une fonction de classe enfant appelle la fonction équivalente du parent;
-	bool SymbolDistinctOne::compare(symbol_t symbol) const
-	{
-		return !SymbolMatchOne::compare(symbol);
-	}
+	--- bool SymbolDistinctOne::compare(symbol_t symbol) const
+	--- {
+	---		return !SymbolMatchOne::compare(symbol);
+	--- }
 
 
 2. De façon concise et précise, veillez expliquer dans vos mots les concepts suivants: 
 	a. Pourquoi et comment vous faites la libération de la mémoire des objets allouésdynamiquement. Prenez le cas précis de la classe State qui libère les objets Transition.
-			Lorsqu'on appelle le destructeur de state, on parcour la liste d'éléments de mTransitions dans une boucle FOR et on les "delete" un à un.
+	---		Lorsqu'on appelle le destructeur de state, on parcour la liste d'éléments de mTransitions dans une boucle FOR et on les "delete" un à un.
 
 	b. Dans la section Fonctions obligatoires, il est stipulé que certaines fonctions requièrent des considérations supplémentaires. Expliquez pourquoi c'est le cas pour les classes identifiées.
 	   Aussi, expliquer la logique d'une solution pouvant résoudre ce problème et comment il serait possible de l'implémenter.
-			Les fonctions obligatoires requièrent des considérations supplémentaire. La constructeur de copie ainsi que les opérateurs d'assignation de copie doivent être "= delete".
-			Cette opération assure que les fonctions ne soient pas disponible. En les mettant "=delete", le compilateur ne laissera aucun autre objet utilisé
-			les opérateurs d'assignation de copie et les constructeurs de copie.
+	---		Les fonctions obligatoires requièrent des considérations supplémentaire. La constructeur de copie ainsi que les opérateurs d'assignation de copie doivent être "= delete".
+	---		Cette opération assure que les fonctions ne soient pas disponible. En les mettant "=delete", le compilateur ne laissera aucun autre objet utilisé
+	---		les opérateurs d'assignation de copie et les constructeurs de copie.
 
 
 3. Optionnellement, une section Recommandations pour indiquer toutes les coquilles que vous avez pu trouver dans cet énoncé et le code soure ainsi que des suggestions.
