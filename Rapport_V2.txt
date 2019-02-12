@@ -1,0 +1,118 @@
+﻿1. Veuillez indiquer où se trouve dans votre projet un exemple de chacun des concepts suivants (en indiquant le concept, le nom du fichier et le numéro de ligne) :
+
+a. Un exemple de masquage public:
+Fichier : Transducer.h  ligne : 20-32
+
+public:
+	// Constructeur, 
+	Transducer() = default;
+	// Destructeur par défaut disponible.
+	virtual ~Transducer() = default;
+	// Constructeur de copie par défaut disponible.
+	Transducer(const Transducer & transducer) = default;
+	// Opérateur d'assignation de copie par défaut disponible.
+	Transducer& operator=(const Transducer & transducer) = default;
+
+	// Effectue l'action requise et retourne, si applicable, 
+	// une chaîne de caractères destinée à la sortie.
+	virtual std::string transduce(symbol_t symbol) = 0;
+
+Ces fonction font partie de la section publique de la calsse Transducer
+
+b. Un exemple de masquage protégé:
+Fichier : Reader.h ligne : 42-47
+
+protected:
+	// Le dernier symbole lu.
+	symbol_t mLastSymbol{ '\0' };
+
+	// Effectue la lecture d'un symbole dans l'entrée et le retourne.
+	virtual symbol_t readOneFromSource() = 0;
+
+Cette variable et cette focntion sont dans la section protégée de la classe Reader
+
+c. Un exemple de masquage privé:
+Fichier  : State.h lignes : 28-30
+
+private:
+	bool mAccepting;
+	std::list<Transition*> mTransitions;
+
+Ces deux variables sont dans la section privée de la classe State.
+
+d. Un exemple de surcharge de fonction:
+Fichier  : SymbolDistonctAny.h
+
+SymbolDistinctAny(symbol_t symbol);
+SymbolDistinctAny(const std::list<symbol_t> & symbols);
+
+La même fonction est déclarée avec des paramètres différents
+
+e. Un exemple de constructeur:
+Fichier : TransducerCounter.cpp lignes : 7-10
+TransducerCounter::TransducerCounter()
+	: Transducer(), mCount{ 0 }
+{
+}
+On initialise mCount à 0 et on crée le parent (Transducer).
+
+f. Un exemple de destructeur:
+Fichier : Transition.cpp lignes : 16-24
+Transition::~Transition()
+{
+	delete mSymbolComparator;
+
+	for (auto const & t : mTransducers)
+	{
+		delete t;
+	}
+}
+Le destructeur va effacer la mémoire de la liste mTransducers.
+
+g. Un exemple de constructeur de copie:
+Fichier : Transducer.h ligne : 26
+Transducer(const Transducer & transducer) = default;
+Ici, en indiquant default, on laisse le compilateur gérée la construction des copies.
+
+h. Un exemple d’opérateur d’assignation de copie:
+Fichier : Transducer.h ligne : 28
+Transducer& operator=(const Transducer & transducer) = default;
+Ici, en indiquant default, on laisse le compilateur gérée l'assignation des copies.
+
+i. Un exemple d’héritage;
+Fichier : TransducerCounter.h ligne : 15
+class TransducerCounter : public Transducer
+
+Dans la déclaration de la classe TransducerCounter, celle-ci hérite du contenu de la classe parent Transducer dans sa section publique.
+
+j. Un exemple de redéfinition de fonction de classe:
+Fichier : TransducerCounter.h ligne : 35
+std::string transduce(symbol_t symbol) override;
+
+La fonction Transduce de la classe TransducerCounter redéfinit la fonction Transducer de classe parent Transducer.
+
+k. Un exemple où la redéfinition d’une fonction de classe enfant appelle la fonction équivalente du parent:
+Fichier : SymbolDistinctOne.cpp lignes : 10-13
+bool SymbolDistinctOne::compare(symbol_t symbol) const
+{
+	return !SymbolMatchOne::compare(symbol);
+}
+
+La fonction compare() de la classe SymbolDistinctOne retourne l'inverse de la fonction compare() de la classe parent (SymbolMatchOne).
+
+2. De façon concise et précise, veuillez expliquer dans vos mots les concepts suivants :
+a. Pourquoi et comment vous faites la libération de la mémoire des objets alloués dynamiquement. Prenez le cas précis de la classe State qui libère les objets Transition.
+
+Pour libérer la mémoire d'un objet et éviter les fuites de mémoire, on doit utiliser le mot clé "delete". Dans le cas des objets Transition, ils étaient contenu dans une liste, on a donc parcouru la liste au complet
+ à l'aide d'une boucle for et on a utiliser delete à chaque objet.
+
+b. Dans la section Fonctions obligatoires, il est stipulé que certaines fonctions requièrent des considérations supplémentaires. Expliquez pourquoi c’est le cas pour les classes identifiées. 
+Aussi, expliquer la logique d’une solution pouvant résoudre ce problème et comment il serait possible de l’implémenter.
+
+Les fonctions obligatoires requièrent des considérations supplémentaires car le constructeur de copie ainsi que les opérateurs d'assignation de copie doivent être "= delete".
+Cette opération assure que les fonctions ne sont pas disponible. En les mettant "=delete", le compilateur ne laissera donc aucun autre objet utilisé les opérateurs d'assignation de copie et les constructeurs de copie.
+Exemple pour la classe FST: Il ne faut pas utiliser les fonctions qui gère la machine états, qui pourrait altérer la logique de la machine.
+
+3. Optionnellement, une section Recommandations pour indiquer toutes les coquilles que vous avez pu trouver dans cet énoncé et le code source ainsi que des suggestions (merci pour votre participation).
+Exécuter le code avant de le donner aux élèves. (Free salt, do not take seriously) xP  //À changer idéalement.
+Sur Moodle, on retrouve quelques exemples. Il serait intéressant de passer au travers de petits exemples avant d'entamer le laboratoire.
