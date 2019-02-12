@@ -18,10 +18,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="XtractC.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CppXtractLib\CppXtractLib.vcxproj">
+      <Project>{4f1f3d34-5ac0-46fe-90a1-0e03429ff772}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{4F1F3D34-5AC0-46FE-90A1-0E03429FF772}</ProjectGuid>
-    <RootNamespace>CppXtractLib</RootNamespace>
+    <ProjectGuid>{32CF209C-0DC1-4D4A-87F1-E193F6FE0EA5}</ProjectGuid>
+    <RootNamespace>TestCppXtractLib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -39,7 +47,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -70,15 +78,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Mik\source\repos\skyrimax\CppXtractLib\CppXtractLib\CppXtractLib</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
@@ -114,62 +123,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolComparator.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolDistinctAny.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolDistinctOne.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchAll.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchAny.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchInRange.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchOne.h" />
-    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchOutRange.h" />
-    <ClInclude Include="CppXtract.h" />
-    <ClInclude Include="FileReader.h" />
-    <ClInclude Include="FileWriter.h" />
-    <ClInclude Include="FST.h" />
-    <ClInclude Include="Reader.h" />
-    <ClInclude Include="Reporter.h" />
-    <ClInclude Include="State.h" />
-    <ClInclude Include="StringReader.h" />
-    <ClInclude Include="StringWriter.h" />
-    <ClInclude Include="Symbol.h" />
-    <ClInclude Include="Transducer.h" />
-    <ClInclude Include="TransducerCounter.h" />
-    <ClInclude Include="TransducerCounterReporter.h" />
-    <ClInclude Include="TransducerRepeater.h" />
-    <ClInclude Include="TransducerReporter.h" />
-    <ClInclude Include="TransducerStaticWriter.h" />
-    <ClInclude Include="Transition.h" />
-    <ClInclude Include="Writer.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolComparator.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolDistinctAny.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolDistinctOne.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchAll.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchAny.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchInRange.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchOne.cpp" />
-    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchOutRange.cpp" />
-    <ClCompile Include="CppXtract.cpp" />
-    <ClCompile Include="FileReader.cpp" />
-    <ClCompile Include="FileWriter.cpp" />
-    <ClCompile Include="FST.cpp" />
-    <ClCompile Include="Reader.cpp" />
-    <ClCompile Include="Reporter.cpp" />
-    <ClCompile Include="ScreenWriter.cpp" />
-    <ClCompile Include="State.cpp" />
-    <ClCompile Include="StringReader.cpp" />
-    <ClCompile Include="StringWriter.cpp" />
-    <ClCompile Include="Transducer.cpp" />
-    <ClCompile Include="TransducerCounter.cpp" />
-    <ClCompile Include="TransducerCounterReporter.cpp" />
-    <ClCompile Include="TransducerRepeater.cpp" />
-    <ClCompile Include="TransducerReporter.cpp" />
-    <ClCompile Include="TransducerStaticWriter.cpp" />
-    <ClCompile Include="Transition.cpp" />
-    <ClCompile Include="Writer.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

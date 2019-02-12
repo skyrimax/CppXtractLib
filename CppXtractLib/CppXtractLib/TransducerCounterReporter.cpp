@@ -5,9 +5,9 @@
 #include <iomanip>
 #include "TransducerCounter.h"
 
-//Constructeur
+
 TransducerCounterReporter::TransducerCounterReporter(int offsetCounter)
-	: Reporter(), mOffsetCounter{ offsetCounter }
+	: mOffsetCounter{ offsetCounter }
 {
 }
 
@@ -30,8 +30,7 @@ void TransducerCounterReporter::setOffsetCounter(int offsetCounter)
 std::string TransducerCounterReporter::report()
 {
 	int count{ mOffsetCounter };
-	for (auto counter : mTransducerCounters)
-	{
+	for (auto counter : mTransducerCounters) {
 		count += static_cast<int>(counter->count());
 	}
 
@@ -39,3 +38,5 @@ std::string TransducerCounterReporter::report()
 	strStream << std::setw(mWidth) << std::setfill(mFillChar) << count;
 	return strStream.str();
 }
+
+

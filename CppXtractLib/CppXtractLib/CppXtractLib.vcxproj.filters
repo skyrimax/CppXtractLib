@@ -22,6 +22,21 @@
     <Filter Include="Header Files\FST">
       <UniqueIdentifier>{201e3a06-308a-481f-83bc-b6163381511a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Symbol Comparateur">
+      <UniqueIdentifier>{ddb2a8bb-6514-4c49-997c-a6d0332772fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Symbol Comparateur">
+      <UniqueIdentifier>{7b1f8466-fbb6-4d93-a39a-6ba582933101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\FST">
+      <UniqueIdentifier>{63633383-3aa3-4e07-a025-8eb64bdcc2dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Reader">
+      <UniqueIdentifier>{e8aa0f97-1de3-4914-8613-ea4f9d03603b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Reader">
+      <UniqueIdentifier>{22b34a91-f419-417d-9347-94bebbfcf4c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Reporter.h">
@@ -48,6 +63,60 @@
     <ClInclude Include="Symbol.h">
       <Filter>Header Files\FST</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolComparator.h">
+      <Filter>Header Files\Symbol Comparateur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolDistinctAny.h">
+      <Filter>Header Files\Symbol Comparateur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolDistinctOne.h">
+      <Filter>Header Files\Symbol Comparateur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchAll.h">
+      <Filter>Header Files\Symbol Comparateur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchAny.h">
+      <Filter>Header Files\Symbol Comparateur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchInRange.h">
+      <Filter>Header Files\Symbol Comparateur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchOne.h">
+      <Filter>Header Files\Symbol Comparateur</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchOutRange.h">
+      <Filter>Header Files\Symbol Comparateur</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="Transition.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="CppXtract.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="FST.h">
+      <Filter>Header Files\FST</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="FileWriter.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="Reader.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="StringReader.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="StringWriter.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
+    <ClInclude Include="Writer.h">
+      <Filter>Header Files\Reader</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Reporter.cpp">
@@ -70,6 +139,63 @@
     </ClCompile>
     <ClCompile Include="TransducerStaticWriter.cpp">
       <Filter>Source Files\Transducer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolComparator.cpp">
+      <Filter>Source Files\Symbol Comparateur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolDistinctAny.cpp">
+      <Filter>Source Files\Symbol Comparateur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolDistinctOne.cpp">
+      <Filter>Source Files\Symbol Comparateur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchAll.cpp">
+      <Filter>Source Files\Symbol Comparateur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchAny.cpp">
+      <Filter>Source Files\Symbol Comparateur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchInRange.cpp">
+      <Filter>Source Files\Symbol Comparateur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchOne.cpp">
+      <Filter>Source Files\Symbol Comparateur</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\Desktop\É.T.S     sesson 6\GPA 434\CppXtractLib\CppXtractLib\SymbolMatchOutRange.cpp">
+      <Filter>Source Files\Symbol Comparateur</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="Transition.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="CppXtract.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="FST.cpp">
+      <Filter>Source Files\FST</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="FileWriter.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="Reader.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenWriter.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="StringReader.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="StringWriter.cpp">
+      <Filter>Source Files\Reader</Filter>
+    </ClCompile>
+    <ClCompile Include="Writer.cpp">
+      <Filter>Source Files\Reader</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

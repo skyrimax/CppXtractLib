@@ -23,8 +23,6 @@ public:
 	// Mutateur de la chaîne de caractères à afficher.
 	void setText(std::string const & text);
 
-	// Retourne la chaine de charactère mText,
-	// utiliser text().
 	std::string transduce(symbol_t symbol);
 
 protected:

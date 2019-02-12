@@ -1,7 +1,3 @@
-// Transducer.h
-// Maxime Royal
-// Version 1.0
-
 #ifndef TRANSDUCER_H
 #define TRANSDUCER_H
 
@@ -18,7 +14,7 @@
 class Transducer
 {
 public:
-	// Constructeur, 
+	// Constructeur par défaut disponible.
 	Transducer() = default;
 	// Destructeur par défaut disponible.
 	virtual ~Transducer() = default;
