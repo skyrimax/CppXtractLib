@@ -1,26 +1,44 @@
 ﻿1. Veuillez indiquer où se trouve dans votre projet un exemple de chacun des concepts suivants (en indiquant le concept, le nom du fichier et le numéro de ligne) :
 
 a. Un exemple de masquage public:
-Fichier : Transducer.h  ligne : 32
+Fichier : Transducer.h  ligne : 20-32
 
-virtual std::string transduce(symbol_t symbol) = 0;
+public:
+	// Constructeur, 
+	Transducer() = default;
+	// Destructeur par défaut disponible.
+	virtual ~Transducer() = default;
+	// Constructeur de copie par défaut disponible.
+	Transducer(const Transducer & transducer) = default;
+	// Opérateur d'assignation de copie par défaut disponible.
+	Transducer& operator=(const Transducer & transducer) = default;
 
-Cette fonction va être hérité par les enfants de Transducer. Ceux-ci sont obligé d'implémenter leur version de cette fonction.
+	// Effectue l'action requise et retourne, si applicable, 
+	// une chaîne de caractères destinée à la sortie.
+	virtual std::string transduce(symbol_t symbol) = 0;
+
+Ces fonction font partie de la section publique de la calsse Transducer
 
 b. Un exemple de masquage protégé:
-Fichier : Reader.h ligne : 47
+Fichier : Reader.h ligne : 42-47
 
-virtual symbol_t readOneFromSource() = 0;
+protected:
+	// Le dernier symbole lu.
+	symbol_t mLastSymbol{ '\0' };
 
-Les enfants de Reader sont obligé d'implémenter leur version de cette fonction qu'ils héritent de leur parent.
+	// Effectue la lecture d'un symbole dans l'entrée et le retourne.
+	virtual symbol_t readOneFromSource() = 0;
+
+Cette variable et cette focntion sont dans la section protégée de la classe Reader
 
 c. Un exemple de masquage privé:
-Fichier  : FST.h lignes : 43-44
+Fichier  : State.h lignes : 28-30
 
-virtual void initialize() {}
-virtual void writeOptionInfo(Writer & writer) {}
+private:
+	bool mAccepting;
+	std::list<Transition*> mTransitions;
 
-Ces deux fonctions vont être héritées par les enfants de et ceux-ci vont devoir les implémenter eux-mêmes.
+Ces deux variables sont dans la section privée de la classe State.
 
 d. Un exemple de surcharge de fonction:
 Fichier : TransducerCounter.h ligne : 35
@@ -43,7 +61,7 @@ TransducerCounter::TransducerCounter()
 	: Transducer(), mCount{ 0 }
 {
 }
-On initialise mCount à 0 et on créer la classe parent (Transducer).
+On initialise mCount à 0 et on crée le parent (Transducer).
 
 f. Un exemple de destructeur:
 Fichier : Transition.cpp lignes : 16-24
