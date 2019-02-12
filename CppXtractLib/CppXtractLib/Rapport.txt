@@ -114,5 +114,25 @@ Cette opération assure que les fonctions ne sont pas disponible. En les mettant
 Exemple pour la classe FST: Il ne faut pas utiliser les fonctions qui gère la machine états, qui pourrait altérer la logique de la machine.
 
 3. Optionnellement, une section Recommandations pour indiquer toutes les coquilles que vous avez pu trouver dans cet énoncé et le code source ainsi que des suggestions (merci pour votre participation).
-Exécuter le code avant de le donner aux élèves. (Free salt, do not take seriously) xP  //À changer idéalement.
 Sur Moodle, on retrouve quelques exemples. Il serait intéressant de passer au travers de petits exemples avant d'entamer le laboratoire.
+
+- Dans le fichier CppXtract.cpp
+
+- Dans la fonction void CppXtract::initializer()
+
+Ajouter les lignes :
+//Ajouté par Maxime Royal
+mTransducerStartBySpaceCounter->reset();
+mTransducerStartByLineCounter->reset();
+mTransducerStartByCharCounter->reset();
+//Fin des ajouts
+
+	if (symbol != -1) { // patch
+             for (auto & currentState : mCurrentStates) {
+                    Transition* transition{ currentState->isTransiting(symbol) };
+                    if (transition) {
+                           writer.write(transition->transduce(symbol));
+                           currentState = transition->nextState();
+                    }
+             }
+       }
