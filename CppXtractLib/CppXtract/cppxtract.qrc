@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/CppXtract">
+        <file>Resources/TonyIcon.png</file>
+        <file>Resources/cpp_logo.png</file>
+    </qresource>
+</RCC>
