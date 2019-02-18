@@ -1,29 +1,111 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>CppXtractLibGUIClass</class>
- <widget class="QMainWindow" name="CppXtractLibGUIClass" >
-  <property name="objectName" >
-   <string notr="true">CppXtractLibGUIClass</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QMainWindow" name="CppXtractLibGUIClass">
+  <property name="geometry">
    <rect>
-	<x>0</x>
-	<y>0</y>
-	<width>600</width>
-	<height>400</height>
+    <x>0</x>
+    <y>0</y>
+    <width>917</width>
+    <height>580</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>CppXtractLibGUI</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>450</y>
+      <width>791</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="mAboutCppXtractButton">
+       <property name="text">
+        <string>À propos de CppXtractLib...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="mAboutCppButton">
+       <property name="text">
+        <string>À propos du langage C++...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="mAboutQtButton">
+       <property name="text">
+        <string>À propos de Qt...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-   <include location="CppXtractLibGUI.qrc"/>
+  <include location="CppXtractLibGUI.qrc"/>
  </resources>
- <connections/>
-</UI>
+ <connections>
+  <connection>
+   <sender>mAboutCppXtractButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CppXtractLibGUIClass</receiver>
+   <slot>showAboutCppXtract()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>459</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>207</x>
+     <y>490</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mAboutCppButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CppXtractLibGUIClass</receiver>
+   <slot>showAboutCpp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>565</x>
+     <y>462</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>527</x>
+     <y>494</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mAboutQtButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CppXtractLibGUIClass</receiver>
+   <slot>showAboutQt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>821</x>
+     <y>465</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>753</x>
+     <y>497</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>showAboutCppXtract()</slot>
+  <slot>showAboutCpp()</slot>
+  <slot>showAboutQt()</slot>
+ </slots>
+</ui>

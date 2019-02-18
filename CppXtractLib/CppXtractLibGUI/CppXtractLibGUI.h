@@ -10,6 +10,12 @@ class CppXtractLibGUI : public QMainWindow
 public:
 	CppXtractLibGUI(QWidget *parent = Q_NULLPTR);
 
+	// slots pour afficher les messages "À propos"
+private slots:
+	void showAboutCppXtract();
+	void showAboutCpp();
+	void showAboutQt();
+
 private:
 	Ui::CppXtractLibGUIClass ui;
 };

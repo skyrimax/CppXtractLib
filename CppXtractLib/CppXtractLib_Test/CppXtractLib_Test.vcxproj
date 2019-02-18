@@ -100,7 +100,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\MaxRo\source\repos\CppXtractLib\CppXtractLib\CppXtractLib</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\GUI\Desktop\GPA434\Laboratoires\GitHub\skyrimax\CppXtractLib\CppXtractLib\CppXtractLib</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

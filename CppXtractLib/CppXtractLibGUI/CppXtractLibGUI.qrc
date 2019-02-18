@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="CppXtractLibGUI">
+    <qresource prefix="/CppXtractLibGUI">
+        <file>Resources/cbooboob.png</file>
+        <file>Resources/cpp_logo.png</file>
     </qresource>
 </RCC>
