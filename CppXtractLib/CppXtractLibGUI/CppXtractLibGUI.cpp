@@ -1,6 +1,24 @@
 #include "CppXtractLibGUI.h"
 #include "qmessagebox.h"
 
+// Déclaration anticipée
+class CppXtractLibGUI;
+
+// Classe qui doit gérer certains éléments d'interface graphique
+class QCppXtractParamWidget : public QWidget
+{
+	Q_OBJECT
+		
+public:
+	QCppXtractParamWidget(CppXtractLibGUI *mainWin);
+
+		// le reste de la déclaration des
+
+private:
+	CppXtractLibGUI *mMainWin;
+
+};
+
 CppXtractLibGUI::CppXtractLibGUI(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -11,7 +29,10 @@ CppXtractLibGUI::CppXtractLibGUI(QWidget *parent)
 	setWindowIcon(QIcon(":/CppXtractLibGUI/Resources/cbooboob.png"));
 
 	// Changer le titre de la fenêtre principale par programmation
-	setWindowTitle(u8R"**(CppXtractLib - Aide à la réalisation partie #1)**");
+	setWindowTitle(u8R"**(CppXtractLib - Aide à la réalisation partie #2)**");
+
+	// Créer un objet de classe QCppXtractParamWidget et lui passer un pointeur de la fenêtre principale.
+	mCppXtractParamWidget = new QCppXtractParamWidget(this);
 }
 
 void CppXtractLibGUI::showAboutCppXtract(){

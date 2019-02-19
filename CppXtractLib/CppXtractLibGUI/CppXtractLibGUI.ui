@@ -14,7 +14,7 @@
    <string>CppXtractLibGUI</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -23,7 +23,7 @@
       <height>25</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="aboutButtonLayout">
      <item>
       <widget class="QPushButton" name="mAboutCppXtractButton">
        <property name="text">
@@ -42,6 +42,35 @@
       <widget class="QPushButton" name="mAboutQtButton">
        <property name="text">
         <string>À propos de Qt...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>60</y>
+      <width>781</width>
+      <height>44</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="selectFileLayout1">
+     <item>
+      <widget class="QPushButton" name="mSelectFileButton1">
+       <property name="text">
+        <string>Sélectionner un fichier...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="mSelectedFilename1">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
