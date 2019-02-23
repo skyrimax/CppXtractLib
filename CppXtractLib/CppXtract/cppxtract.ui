@@ -55,16 +55,16 @@
          <widget class="QWidget" name="fileSelectorInput" native="true">
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QPushButton" name="fileSlectorButton">
+            <widget class="QPushButton" name="fileSelectorButtonImput">
              <property name="text">
               <string>Sélectionner un fichier d'entré</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="filePathLabel">
+            <widget class="QLabel" name="inputFilePathLabel">
              <property name="text">
-              <string>Placeholder text</string>
+              <string>-</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -75,24 +75,14 @@
          </widget>
         </item>
         <item>
-         <widget class="QFrame" name="outputOptions">
+         <widget class="QGroupBox" name="outputOptions">
           <property name="autoFillBackground">
            <bool>false</bool>
           </property>
-          <property name="frameShape">
-           <enum>QFrame::WinPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Raised</enum>
+          <property name="title">
+           <string>Option de sortie</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_3">
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string>Option de sortie</string>
-             </property>
-            </widget>
-           </item>
            <item>
             <widget class="QRadioButton" name="screenRadioButton">
              <property name="text">
@@ -118,16 +108,16 @@
             <widget class="QWidget" name="fileSelectorOutput" native="true">
              <layout class="QVBoxLayout" name="verticalLayout_2">
               <item>
-               <widget class="QPushButton" name="fileSlectorButton_2">
+               <widget class="QPushButton" name="fileSlectorButtonOutput">
                 <property name="text">
                  <string>Sélectionner un fichier d'entré</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="filePathLabel_2">
+               <widget class="QLabel" name="outputFilePathLabel_2">
                 <property name="text">
-                 <string>Placeholder text</string>
+                 <string>-</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -243,5 +233,59 @@
  <resources>
   <include location="cppxtract.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>aboutQtButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CppXtractClass</receiver>
+   <slot>showAboutQt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>493</x>
+     <y>397</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>478</x>
+     <y>417</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>aboutCPlusPlusButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CppXtractClass</receiver>
+   <slot>showAboutCpp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>318</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>416</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>aboutCppXtractButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CppXtractClass</receiver>
+   <slot>showAboutCppXtract()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>393</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>418</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>showAboutCppXtract()</slot>
+  <slot>showAboutCpp()</slot>
+  <slot>showAboutQt()</slot>
+ </slots>
 </ui>

@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="CppXtract">
+    <qresource prefix="/CppXtract">
+        <file>Resources/cpp-file-format-symbol.png</file>
+        <file>Resources/cpp_logo.png</file>
     </qresource>
 </RCC>

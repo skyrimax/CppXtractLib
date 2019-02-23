@@ -1,85 +1,92 @@
-#include "QFileSelector.h"										// Inclusion du fichier d'en-tête correspondant
-
+#include "stdafx.h"
 #include <QPushButton>											// Pour le bouton
 #include <QLabel>												// Pour la zone d'affichage
-#include <QVBoxLayout>											// Pour le layout vertical
 #include <QFileDialog>											// Pour les boîtes de dialogue "Open" et "Save as"
+#include "QFileSelector.h"										// Inclusion du fichier d'en-tête correspondant
 
 
-QFileSelector::QFileSelector(QWidget * parent)					// Constructeur par défaut
-	:	QWidget(parent),										// Spécification du constructeur parent
-		mComplyFileNameFunction{ nullptr },						// Initialisation du pointeur de fonction
-		mRole{ Role::Open },									// Type de fenêtre "Open" par défaut
-		mMaxLengthToDisplay{ 50 },								// Largeur du texte maximum : valeur arbitraire
-		mOpenTitle("Open file"),								// Titre de la fenêtre "Open" par défaut
-		mOpenFilter(),											// Liste des filtres pour la fenêtre "Open" par défaut (aucun)
-		mSaveAsTitle("Save file as"),							// Titre de la fenêtre "Save as" par défaut
-		mSaveAsFilter(),										// Liste des filtres pour la fenêtre "Save as" par défaut (aucun)
-		mCurrentDirectory(),									// Répertoire par défaut lors de l'amorce de la boîte de dialogue "Open" ou "Save as"
-		mNoFileSelectedString("-"),								// Texte par défaut lorsqu'aucun fichier n'est sélectionné
-		mButton { new QPushButton("Select a file...") },		// Création et texte du bouton
-		mFileName { new QLabel(mNoFileSelectedString) }			// Création et texte de la zone de texte
+// Constructeur
+QFileSelectorX::QFileSelectorX(QWidget * parent, QPushButton *button, QLabel *label)
+	:	QWidget(parent),  // Spécification du constructeur parent
+		// Initialisation du pointeur de fonction
+		mComplyFileNameFunction{ nullptr },
+		// Type de fenêtre "Open" par défaut
+		mRole{ Role::Open },
+		// Largeur du texte maximum : valeur arbitraire
+		mMaxLengthToDisplay{ 50 },
+		// Titre de la fenêtre "Open" par défaut
+		mOpenTitle("Open file"),
+		// Liste des filtres pour la fenêtre "Open" par défaut (aucun)
+		mOpenFilter(),
+		// Titre de la fenêtre "Save as" par défaut
+		mSaveAsTitle("Save file as"),
+		// Liste des filtres pour la fenêtre "Save as" par défaut (aucun)
+		mSaveAsFilter(),
+		// Répertoire par défaut lors de l'amorce de la boîte de dialogue "Open" ou "Save as"
+		mCurrentDirectory(),
+		// Texte par défaut lorsqu'aucun fichier n'est sélectionné
+		mNoFileSelectedString("-"),
+		// Texte du bouton
+		mButton{ button },
+		// Texte de la zone de texte
+		mFileName { label }
 {
 	// Détermine certaines caractéristiques des widgets
 	mFileName->setAlignment(Qt::AlignHCenter);
-
-	// Effectue le montage du layout vertical et l'assigne à soi-même, le widget
-	QVBoxLayout * layout{ new QVBoxLayout };
-	layout->addWidget(mButton);
-	layout->addWidget(mFileName);
-	setLayout(layout);
+	mFileName->setText(mNoFileSelectedString);
+	mButton->setText("Select a file...");
 
 	// Connecte le signal "clicked" du bouton à la slot "selectFile" de ce widget.
-	connect(mButton, &QPushButton::clicked, this, &QFileSelector::selectFile);
+	connect(mButton, &QPushButton::clicked, this, &QFileSelectorX::selectFile);
 }
 
 // Mutateurs
-void QFileSelector::setButtonText(const QString & text)
+void QFileSelectorX::setButtonText(const QString & text)
 {
 	mButton->setText(text);
 }
 
-void QFileSelector::setOpen(const QString & openTitle, const QString & openFilter)
+void QFileSelectorX::setOpen(const QString & openTitle, const QString & openFilter)
 {
 	mRole = Role::Open;
 	mOpenTitle = openTitle;
 	mOpenFilter = openFilter;
 }
 
-void QFileSelector::setSaveAs(const QString & saveTitle, const QString & saveFilter)
+void QFileSelectorX::setSaveAs(const QString & saveTitle, const QString & saveFilter)
 {
 	mRole = Role::SaveAs;
 	mSaveAsTitle = saveTitle;
 	mSaveAsFilter = saveFilter;
 }
 
-void QFileSelector::setDir(const QString & dir)
+void QFileSelectorX::setDir(const QString & dir)
 {
 	mCurrentDirectory = dir;
 }
 
-void QFileSelector::setNoFileSelectedText(const QString & text)
+void QFileSelectorX::setNoFileSelectedText(const QString & text)
 {
 	mNoFileSelectedString = text;
 }
 
-void QFileSelector::setComplyFileNameFunction(ComplyFileNameFunction complyFileNameFunction)
+void QFileSelectorX::setComplyFileNameFunction(ComplyFileNameFunction complyFileNameFunction)
 {
 	mComplyFileNameFunction = complyFileNameFunction;
 }
 
 // Accesseurs
-bool QFileSelector::isFileSelected() const
+bool QFileSelectorX::isFileSelected() const
 {
 	return !mSelectedFile.isEmpty();
 }
 
-const QString & QFileSelector::selectedFile() const
+const QString & QFileSelectorX::selectedFile() const
 {
 	return mSelectedFile;
 }
 
-QString QFileSelector::getFileName()
+QString QFileSelectorX::getFileName()
 {
 	switch (mRole) {
 		case Role::Open:
@@ -93,7 +100,7 @@ QString QFileSelector::getFileName()
 
 // Fonctions utilitaires
 // Fait la sélection de fichier en faisant l'aïguillage du type de boîte de dialogue
-void QFileSelector::selectFile()
+void QFileSelectorX::selectFile()
 {
 	QString userSelectedFile(getFileName());
 
@@ -117,7 +124,7 @@ void QFileSelector::selectFile()
 // Autrement dit, lorsque l'utilisateur n'a pas assigner une fonction 
 // personnalisée de conformité, cette fonction est une fonction substitue par 
 // défaut.
-QString QFileSelector::shortenFileName() const
+QString QFileSelectorX::shortenFileName() const
 {
 	if (mSelectedFile.length() <= mMaxLengthToDisplay) {
 		return mSelectedFile;
