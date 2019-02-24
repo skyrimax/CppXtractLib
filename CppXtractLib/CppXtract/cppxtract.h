@@ -12,9 +12,13 @@ class CppXtract : public QWidget
 public:
 	CppXtract(QWidget *parent = Q_NULLPTR);
 
-	// Accesseurs
+	// Accesseurs Input file
 	QPushButton* getImputFileButton() { return ui.fileSelectorButtonImput; }
 	QLabel* getInputFilename() { return ui.inputFilePathLabel; }
+
+	// Accesseurs Output file
+	QPushButton* getOutputFileButton() { return ui.fileSlectorButtonOutput; }
+	QLabel* getOutputFilename() { return ui.outputFilePathLabel; }
 
 private:
 	Ui::CppXtractClass ui;

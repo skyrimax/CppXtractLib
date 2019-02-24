@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cppxtract.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.0
+** Created by: Qt User Interface Compiler version 5.12.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -45,7 +45,7 @@ public:
     QWidget *fileSelectorOutput;
     QVBoxLayout *verticalLayout_2;
     QPushButton *fileSlectorButtonOutput;
-    QLabel *outputFilePathLabel_2;
+    QLabel *outputFilePathLabel;
     QCheckBox *statisticsCheckBox;
     QSpacerItem *horizontalSpacer_3;
     QWidget *cppXtractButton;
@@ -138,11 +138,11 @@ public:
 
         verticalLayout_2->addWidget(fileSlectorButtonOutput);
 
-        outputFilePathLabel_2 = new QLabel(fileSelectorOutput);
-        outputFilePathLabel_2->setObjectName(QString::fromUtf8("outputFilePathLabel_2"));
-        outputFilePathLabel_2->setAlignment(Qt::AlignCenter);
+        outputFilePathLabel = new QLabel(fileSelectorOutput);
+        outputFilePathLabel->setObjectName(QString::fromUtf8("outputFilePathLabel"));
+        outputFilePathLabel->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_2->addWidget(outputFilePathLabel_2);
+        verticalLayout_2->addWidget(outputFilePathLabel);
 
 
         verticalLayout_3->addWidget(fileSelectorOutput);
@@ -230,7 +230,7 @@ public:
         clipboardRadioButton->setText(QApplication::translate("CppXtractClass", "Vers le presse papier", nullptr));
         fileRadioButton->setText(QApplication::translate("CppXtractClass", "Vers un fichier de sortie", nullptr));
         fileSlectorButtonOutput->setText(QApplication::translate("CppXtractClass", "S\303\251lectionner un fichier d'entr\303\251", nullptr));
-        outputFilePathLabel_2->setText(QApplication::translate("CppXtractClass", "-", nullptr));
+        outputFilePathLabel->setText(QApplication::translate("CppXtractClass", "-", nullptr));
         statisticsCheckBox->setText(QApplication::translate("CppXtractClass", "Ins\303\251rer les statistiques", nullptr));
         extractButton->setText(QApplication::translate("CppXtractClass", "Extraire les commentaires...", nullptr));
         aboutCppXtractButton->setText(QApplication::translate("CppXtractClass", "\303\200 propos de CppXtract...", nullptr));

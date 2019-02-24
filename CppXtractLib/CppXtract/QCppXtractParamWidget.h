@@ -4,6 +4,7 @@
 
 // Déclaration anticipée
 class CppXtract;
+class QFileSelectorX;
 
 // Classe qui doit gérer certains éléments d'interface graphique
 class QCppXtractParamWidget : public QWidget
@@ -13,8 +14,12 @@ class QCppXtractParamWidget : public QWidget
 public:
 	QCppXtractParamWidget(CppXtract* mainWin);
 
-	// Mettre le reste des méthodes en temps et lieu ici
+	const QString & inputFilename() const;
+	const QString & outputFilename() const;
+	bool isStatIncluded() const;
 
 private :
 	CppXtract* mMainWin;
+	QFileSelectorX* mInputFileSelector;
+	QFileSelectorX* mOutputFileSelector;
 };
