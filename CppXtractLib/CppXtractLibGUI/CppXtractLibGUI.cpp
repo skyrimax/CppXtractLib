@@ -1,23 +1,10 @@
 #include "CppXtractLibGUI.h"
+#include "QCppXtractParamWidget.h"
 #include "qmessagebox.h"
 
 // Déclaration anticipée
 class CppXtractLibGUI;
 
-// Classe qui doit gérer certains éléments d'interface graphique
-class QCppXtractParamWidget : public QWidget
-{
-	Q_OBJECT
-		
-public:
-	QCppXtractParamWidget(CppXtractLibGUI *mainWin);
-
-		// le reste de la déclaration des
-
-private:
-	CppXtractLibGUI *mMainWin;
-
-};
 
 CppXtractLibGUI::CppXtractLibGUI(QWidget *parent)
 	: QMainWindow(parent)
@@ -83,3 +70,6 @@ void CppXtractLibGUI::showAboutCpp(){
 
 }
 void CppXtractLibGUI::showAboutQt() { qApp->aboutQt(); }
+
+// Laissé vide --- temporairement.
+void CppXtractLibGUI::updateProcessButton(){}

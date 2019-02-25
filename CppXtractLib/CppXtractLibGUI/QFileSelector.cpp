@@ -74,6 +74,12 @@ void QFileSelector::setComplyFileNameFunction(ComplyFileNameFunction complyFileN
 	mComplyFileNameFunction = complyFileNameFunction;
 }
 
+// Ajout de mutateur pour activer/désactiver le bouton
+void QFileSelector::setEnabled(bool b){
+	mButton->setEnabled(b);
+	mFileName->setEnabled(b);
+}
+
 // Accesseurs
 bool QFileSelector::isFileSelected() const
 {

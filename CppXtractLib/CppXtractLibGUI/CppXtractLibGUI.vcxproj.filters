@@ -42,13 +42,13 @@
     <ClCompile Include="QUtil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CppXtractLibGUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="CppXtractLibGUI.h">
       <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="CppXtractLibGUI.cpp">
-      <Filter>Source Files</Filter>
     </QtMoc>
     <QtMoc Include="QFileSelector.h">
       <Filter>Header Files</Filter>

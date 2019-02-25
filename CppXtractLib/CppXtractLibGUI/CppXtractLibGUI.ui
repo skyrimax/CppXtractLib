@@ -47,7 +47,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -75,6 +75,109 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QGroupBox" name="mOutputGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>140</y>
+      <width>781</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Options de sortie</string>
+    </property>
+    <widget class="QRadioButton" name="mOutputScreenRadioButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>191</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>À l'écran</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">mButtonGroup</string>
+     </attribute>
+    </widget>
+    <widget class="QRadioButton" name="mOutputClipboardRadioButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>191</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Vers le presse papier</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">mButtonGroup</string>
+     </attribute>
+    </widget>
+    <widget class="QRadioButton" name="mOutputFileRadioButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>191</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Vers un fichier de sortie</string>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">mButtonGroup</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>100</y>
+       <width>761</width>
+       <height>44</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="selectFileLayout2">
+      <item>
+       <widget class="QPushButton" name="mSelectFileButton2">
+        <property name="text">
+         <string>Sélectionner un fichier...</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="mSelectedFilename2">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QCheckBox" name="mIncludeStatInfoCheckBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>150</y>
+       <width>261</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Insérer les statistiques de comptage</string>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>
@@ -137,4 +240,7 @@
   <slot>showAboutCpp()</slot>
   <slot>showAboutQt()</slot>
  </slots>
+ <buttongroups>
+  <buttongroup name="mButtonGroup"/>
+ </buttongroups>
 </ui>

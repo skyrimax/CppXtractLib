@@ -60,6 +60,10 @@ public:
 	// Mutateur définissant la fonction qui rendra conforme le nom de fichier pour l'affichage.
 	void setComplyFileNameFunction(ComplyFileNameFunction complyFileNameFunction);
 
+	// Ajout de mutateurs
+	// Fonction membre pour activer/désactiver le bouton et l'étiquette de texte
+	void setEnabled(bool b);
+
 	// Signaux (tous les signaux sont public)
 signals:
 	// Signal émit lorsque le fichier est modifié.
