@@ -1,16 +1,29 @@
 #include "stdafx.h"
 #include "cppxtract.h"
+#include "QCppXtractParamWidget.h"
+#include <CppXtractLib.h>
+//#include <C:\Users\Frederic\Desktop\GIT - Copie\skyrimax\CppXtractLib\CppXtractLib\CppXtractLib\CppXtract.h>
+
+
+class QCppXtractParamWidget; //Déclaration anticipée
 
 CppXtract::CppXtract(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
 
-	//Insérer l'icone de la fenêtre
-	setWindowIcon(QIcon(":/CppXtract/Resources/TonyIcon.png"));
-
-	//Modification du titre de la fenêtre
+	//Modification du titre de la fenêtre principale
 	setWindowTitle(u8R"**(CppXtract - Laboratoire #2)**");
+
+	mCppXtractParamWidget = new QCppXtractParamWidget(this);
+
+	//Désactiver le bouton "Extraitre les commentaires"
+	ui.mProcessButton->setEnabled(false);
+	//Connection du signal parameterchanged au slot updateProcessButton()
+	connect(mCppXtractParamWidget, &QCppXtractParamWidget::parameterChanged, this, &CppXtract::updateProcessButton);
+
+	//Connecter le signal Clicked() au slot process()
+	connect(ui.mProcessButton, &QPushButton::clicked, this, &CppXtract::process);
 }
 
 void CppXtract::showAboutCppXtract() {
@@ -26,7 +39,7 @@ Ce programme a été réalisé par :
 	- Mikaël Valton Charette
 
 Dans le cadre du cours :
-	- GPA434 - Inénierie des systèmes orientés-objet
+	- GPA434 - Ingénierie des systèmes orientés-objet
 	- Laboratoire 2
 
 Version 1.0)---"};
@@ -35,7 +48,10 @@ Version 1.0)---"};
 	QMessageBox::about(this, u8R"(À propos de CppXtract)", aboutCppXtract);
 };
 
+
 void CppXtract::showAboutCpp() {
+
+	//Description du langage C++ provenant de Wikipedia
 	QString cppDescription{ "\
 		 C++ is a general - purpose programming language.It has imperative, object -\
 		 oriented and generic programming features, while also providing facilities for low -\
@@ -64,7 +80,8 @@ void CppXtract::showAboutCpp() {
 	};
 
 	//Création de l'objet msgbox
-	QMessageBox msgbox(QMessageBox::NoIcon, u8R"(À propos de C++)", cppDescription, QMessageBox::Ok, this, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
+	QMessageBox msgbox(QMessageBox::NoIcon, u8R"(À propos du langage C++)", cppDescription, 
+		QMessageBox::Ok, this, Qt::Dialog | Qt::MSWindowsFixedSizeDialogHint);
 
 	//Icone de la fenêtre
 	setWindowIcon(QIcon(":/CppXtract/Resources/TonyIcon.png"));
@@ -75,13 +92,92 @@ void CppXtract::showAboutCpp() {
 
 	//Format du texte
 	msgbox.setTextFormat(Qt::RichText);
-	
-	//Création du titre de la fenêtre
-	msgbox.setWindowTitle("A propos du langage C++");
-	msgbox.setIconPixmap(cppLogo.scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
+	//Création du logo de C++
+	msgbox.setIconPixmap(cppLogo.scaled(64, 64, Qt::KeepAspectRatio, 
+		Qt::SmoothTransformation));
+
+	//Affichage de la fenêtre
 	msgbox.exec();
-
-
 };
 
+
 void CppXtract::showAboutQt() { qApp->aboutQt(); };
+
+
+void CppXtract::updateProcessButton()
+{
+	ui.mProcessButton->setEnabled(mCppXtractParamWidget->isValid());
+};
+
+
+void CppXtract::process()
+{
+	QString errorMsg;
+
+	//S'assurert que le fichier d'entrée est valide
+	QFileInfo inputFileInfo(mCppXtractParamWidget->inputFilename());
+	if (!fileOk(inputFileInfo, errorMsg))
+	{
+		QMessageBox::warning(this, "Erreur", errorMsg + "\Aucune extraction n'a eu lieu");
+		return;
+	}
+	//Créer la FST pour l'Extraction des commentaires
+	lib::CppXtract cppXtract;
+
+	//Exécuter l'extraction selon les options de sorties
+	switch (mCppXtractParamWidget->outputType())
+	{
+
+	}
+}
+
+
+bool CppXtract::fileOk(const QFileInfo &xFile, QString &errMsg, bool checkRead)
+{
+	//Préparer le message d'erreur
+	errMsg = checkRead ? u8R"(Le fichier d'entrée)" : "Le fichier de sortie";
+	errMsg += QString("\"") + xFile.fileName() + "\"" + " : "; 
+
+	//D'Abord s'Assurer que nom du fichier n'est pas vide
+	if (xFile.fileName().isEmpty) {
+		errMsg += "N'a pas de nom. \n";
+		return false;
+	}
+	//Ensuite s'assurer que le chemin est un dossier qui existe
+	if (!QFileInfo(xFile.path()).isDir())
+	{
+		errMsg += "Son chemin est incorrect.\n";
+			return false;
+	}
+	//En lecture...
+	if (checkRead)
+	{
+		//S'assurer que l'utilisateur a la permission lecture
+		if (!QFileInfo(xFile.path()).isReadable)
+		{
+			errMsg += QString(u8R"(Il est protégé contre la lecture.)") + "\n";
+			return false;
+		}
+	}
+	//En écriture...
+	else
+	{
+		//L'utilisateur doit avoir la permission d'écriture das le dossier
+		if (!QFileInfo(xFile.path()).isWritable())
+		{
+			errMsg += QString(u8R"(Pas de permission d'écriture dans le dossier.)") + "\n";
+			return false;
+		}
+		//Si le fichier de sortie existe alors l'utilisateur doit avoir la permission d'écriture
+		if ((QFileInfo(xFile.filePath()).exists()) && !QFileInfo(xFile.filePath()).isWritable())
+		{
+			errMsg += QString(u8R"(Il est protégé contre l'écriture.)") + "\n";
+			return false;
+		}
+	}
+	//Tout va bien
+	return true;
+}
+
+

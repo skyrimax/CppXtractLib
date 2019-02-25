@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>540</width>
-    <height>521</height>
+    <width>572</width>
+    <height>581</height>
    </rect>
   </property>
   <property name="cursor">
@@ -71,9 +71,9 @@
             <widget class="QWidget" name="widget_2" native="true">
              <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout">
+               <layout class="QVBoxLayout" name="selectFileLayout1">
                 <item>
-                 <widget class="QPushButton" name="SelecFichierEntreeButton">
+                 <widget class="QPushButton" name="mSelectFileButton1">
                   <property name="text">
                    <string>Sélectionnez un fichier d'entrée...</string>
                   </property>
@@ -86,7 +86,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="FichierEntreeLabel">
+                 <widget class="QLabel" name="mSelectedFilename1">
                   <property name="text">
                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&amp;lt;Aucun fichier de sélectionné&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
@@ -98,7 +98,7 @@
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QGroupBox" name="groupBox">
+            <widget class="QGroupBox" name="mOutputGroupBox">
              <property name="title">
               <string>Option de sortie</string>
              </property>
@@ -109,33 +109,42 @@
                  <item>
                   <layout class="QVBoxLayout" name="verticalLayout_3">
                    <item>
-                    <widget class="QRadioButton" name="ScreenButton">
+                    <widget class="QRadioButton" name="mOutputScreenRadioButton">
                      <property name="cursor">
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="text">
                       <string>À l'écran</string>
                      </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">mButtonGroup</string>
+                     </attribute>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QRadioButton" name="PressPapierButton">
+                    <widget class="QRadioButton" name="mOutputClipboardRadioButton">
                      <property name="cursor">
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="text">
                       <string>Vers le presse papier</string>
                      </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">mButtonGroup</string>
+                     </attribute>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QRadioButton" name="FichierSortieButton">
+                    <widget class="QRadioButton" name="mOutputFileRadioButton">
                      <property name="cursor">
                       <cursorShape>PointingHandCursor</cursorShape>
                      </property>
                      <property name="text">
                       <string>Vers un fichier de sortie</string>
                      </property>
+                     <attribute name="buttonGroup">
+                      <string notr="true">mButtonGroup</string>
+                     </attribute>
                     </widget>
                    </item>
                   </layout>
@@ -149,14 +158,14 @@
                  <item>
                   <layout class="QVBoxLayout" name="verticalLayout_2">
                    <item>
-                    <widget class="QPushButton" name="SelecFichierSortieButton">
+                    <widget class="QPushButton" name="mSelectFileButton2">
                      <property name="text">
                       <string>Sélectionnez les fichiers de sortie...</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="FichierSortieLabel">
+                    <widget class="QLabel" name="mSelectedFilename2">
                      <property name="text">
                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&amp;lt;Aucun fichier sélectionné&amp;gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                      </property>
@@ -173,7 +182,7 @@
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <item>
-                    <widget class="QCheckBox" name="InsertStatsBox">
+                    <widget class="QCheckBox" name="mIncludeStatInfoCheckBox">
                      <property name="cursor">
                       <cursorShape>CrossCursor</cursorShape>
                      </property>
@@ -232,7 +241,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QPushButton" name="XtractCommentButton">
+              <widget class="QPushButton" name="mProcessButton">
                <property name="text">
                 <string>Extraire les commentaires...</string>
                </property>
@@ -334,7 +343,7 @@
    <slot>showAboutCpp()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>238</x>
+     <x>240</x>
      <y>436</y>
     </hint>
     <hint type="destinationlabel">
@@ -350,7 +359,7 @@
    <slot>showAboutQt()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>392</x>
+     <x>454</x>
      <y>443</y>
     </hint>
     <hint type="destinationlabel">
@@ -365,4 +374,7 @@
   <slot>showAboutCpp()</slot>
   <slot>showAboutQt()</slot>
  </slots>
+ <buttongroups>
+  <buttongroup name="mButtonGroup"/>
+ </buttongroups>
 </ui>

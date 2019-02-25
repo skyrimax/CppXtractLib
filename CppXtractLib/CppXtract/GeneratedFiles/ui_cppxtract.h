@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGridLayout>
@@ -40,33 +41,33 @@ public:
     QGridLayout *gridLayout;
     QWidget *widget_2;
     QHBoxLayout *horizontalLayout_4;
-    QVBoxLayout *verticalLayout;
-    QPushButton *SelecFichierEntreeButton;
-    QLabel *FichierEntreeLabel;
-    QGroupBox *groupBox;
+    QVBoxLayout *selectFileLayout1;
+    QPushButton *mSelectFileButton1;
+    QLabel *mSelectedFilename1;
+    QGroupBox *mOutputGroupBox;
     QVBoxLayout *verticalLayout_5;
     QWidget *widget_3;
     QHBoxLayout *horizontalLayout_8;
     QVBoxLayout *verticalLayout_3;
-    QRadioButton *ScreenButton;
-    QRadioButton *PressPapierButton;
-    QRadioButton *FichierSortieButton;
+    QRadioButton *mOutputScreenRadioButton;
+    QRadioButton *mOutputClipboardRadioButton;
+    QRadioButton *mOutputFileRadioButton;
     QWidget *widget_4;
     QHBoxLayout *horizontalLayout_7;
     QVBoxLayout *verticalLayout_2;
-    QPushButton *SelecFichierSortieButton;
-    QLabel *FichierSortieLabel;
+    QPushButton *mSelectFileButton2;
+    QLabel *mSelectedFilename2;
     QWidget *widget_5;
     QHBoxLayout *horizontalLayout_6;
     QHBoxLayout *horizontalLayout_3;
-    QCheckBox *InsertStatsBox;
+    QCheckBox *mIncludeStatInfoCheckBox;
     QSpacerItem *horizontalSpacer_2;
     QVBoxLayout *verticalLayout_4;
     QWidget *PushButton;
     QHBoxLayout *horizontalLayout_5;
     QHBoxLayout *horizontalLayout_2;
     QSpacerItem *horizontalSpacer;
-    QPushButton *XtractCommentButton;
+    QPushButton *mProcessButton;
     QSpacerItem *verticalSpacer;
     QWidget *aboutButtonLayout;
     QHBoxLayout *horizontalLayout;
@@ -74,12 +75,13 @@ public:
     QPushButton *mAboutCppButton;
     QPushButton *mAboutQtButton;
     QSpacerItem *verticalSpacer_2;
+    QButtonGroup *mButtonGroup;
 
     void setupUi(QMainWindow *CppXtractClass)
     {
         if (CppXtractClass->objectName().isEmpty())
             CppXtractClass->setObjectName(QString::fromUtf8("CppXtractClass"));
-        CppXtractClass->resize(540, 521);
+        CppXtractClass->resize(572, 581);
         CppXtractClass->setCursor(QCursor(Qt::ArrowCursor));
         QIcon icon;
         icon.addFile(QString::fromUtf8("TonyIcon.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -118,33 +120,33 @@ public:
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        SelecFichierEntreeButton = new QPushButton(widget_2);
-        SelecFichierEntreeButton->setObjectName(QString::fromUtf8("SelecFichierEntreeButton"));
-        SelecFichierEntreeButton->setIconSize(QSize(16, 16));
+        selectFileLayout1 = new QVBoxLayout();
+        selectFileLayout1->setSpacing(6);
+        selectFileLayout1->setObjectName(QString::fromUtf8("selectFileLayout1"));
+        mSelectFileButton1 = new QPushButton(widget_2);
+        mSelectFileButton1->setObjectName(QString::fromUtf8("mSelectFileButton1"));
+        mSelectFileButton1->setIconSize(QSize(16, 16));
 
-        verticalLayout->addWidget(SelecFichierEntreeButton);
+        selectFileLayout1->addWidget(mSelectFileButton1);
 
-        FichierEntreeLabel = new QLabel(widget_2);
-        FichierEntreeLabel->setObjectName(QString::fromUtf8("FichierEntreeLabel"));
+        mSelectedFilename1 = new QLabel(widget_2);
+        mSelectedFilename1->setObjectName(QString::fromUtf8("mSelectedFilename1"));
 
-        verticalLayout->addWidget(FichierEntreeLabel);
+        selectFileLayout1->addWidget(mSelectedFilename1);
 
 
-        horizontalLayout_4->addLayout(verticalLayout);
+        horizontalLayout_4->addLayout(selectFileLayout1);
 
 
         gridLayout->addWidget(widget_2, 0, 0, 1, 1);
 
-        groupBox = new QGroupBox(widget);
-        groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        verticalLayout_5 = new QVBoxLayout(groupBox);
+        mOutputGroupBox = new QGroupBox(widget);
+        mOutputGroupBox->setObjectName(QString::fromUtf8("mOutputGroupBox"));
+        verticalLayout_5 = new QVBoxLayout(mOutputGroupBox);
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setContentsMargins(11, 11, 11, 11);
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        widget_3 = new QWidget(groupBox);
+        widget_3 = new QWidget(mOutputGroupBox);
         widget_3->setObjectName(QString::fromUtf8("widget_3"));
         horizontalLayout_8 = new QHBoxLayout(widget_3);
         horizontalLayout_8->setSpacing(6);
@@ -153,23 +155,28 @@ public:
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        ScreenButton = new QRadioButton(widget_3);
-        ScreenButton->setObjectName(QString::fromUtf8("ScreenButton"));
-        ScreenButton->setCursor(QCursor(Qt::PointingHandCursor));
+        mOutputScreenRadioButton = new QRadioButton(widget_3);
+        mButtonGroup = new QButtonGroup(CppXtractClass);
+        mButtonGroup->setObjectName(QString::fromUtf8("mButtonGroup"));
+        mButtonGroup->addButton(mOutputScreenRadioButton);
+        mOutputScreenRadioButton->setObjectName(QString::fromUtf8("mOutputScreenRadioButton"));
+        mOutputScreenRadioButton->setCursor(QCursor(Qt::PointingHandCursor));
 
-        verticalLayout_3->addWidget(ScreenButton);
+        verticalLayout_3->addWidget(mOutputScreenRadioButton);
 
-        PressPapierButton = new QRadioButton(widget_3);
-        PressPapierButton->setObjectName(QString::fromUtf8("PressPapierButton"));
-        PressPapierButton->setCursor(QCursor(Qt::PointingHandCursor));
+        mOutputClipboardRadioButton = new QRadioButton(widget_3);
+        mButtonGroup->addButton(mOutputClipboardRadioButton);
+        mOutputClipboardRadioButton->setObjectName(QString::fromUtf8("mOutputClipboardRadioButton"));
+        mOutputClipboardRadioButton->setCursor(QCursor(Qt::PointingHandCursor));
 
-        verticalLayout_3->addWidget(PressPapierButton);
+        verticalLayout_3->addWidget(mOutputClipboardRadioButton);
 
-        FichierSortieButton = new QRadioButton(widget_3);
-        FichierSortieButton->setObjectName(QString::fromUtf8("FichierSortieButton"));
-        FichierSortieButton->setCursor(QCursor(Qt::PointingHandCursor));
+        mOutputFileRadioButton = new QRadioButton(widget_3);
+        mButtonGroup->addButton(mOutputFileRadioButton);
+        mOutputFileRadioButton->setObjectName(QString::fromUtf8("mOutputFileRadioButton"));
+        mOutputFileRadioButton->setCursor(QCursor(Qt::PointingHandCursor));
 
-        verticalLayout_3->addWidget(FichierSortieButton);
+        verticalLayout_3->addWidget(mOutputFileRadioButton);
 
 
         horizontalLayout_8->addLayout(verticalLayout_3);
@@ -177,7 +184,7 @@ public:
 
         verticalLayout_5->addWidget(widget_3);
 
-        widget_4 = new QWidget(groupBox);
+        widget_4 = new QWidget(mOutputGroupBox);
         widget_4->setObjectName(QString::fromUtf8("widget_4"));
         horizontalLayout_7 = new QHBoxLayout(widget_4);
         horizontalLayout_7->setSpacing(6);
@@ -186,15 +193,15 @@ public:
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        SelecFichierSortieButton = new QPushButton(widget_4);
-        SelecFichierSortieButton->setObjectName(QString::fromUtf8("SelecFichierSortieButton"));
+        mSelectFileButton2 = new QPushButton(widget_4);
+        mSelectFileButton2->setObjectName(QString::fromUtf8("mSelectFileButton2"));
 
-        verticalLayout_2->addWidget(SelecFichierSortieButton);
+        verticalLayout_2->addWidget(mSelectFileButton2);
 
-        FichierSortieLabel = new QLabel(widget_4);
-        FichierSortieLabel->setObjectName(QString::fromUtf8("FichierSortieLabel"));
+        mSelectedFilename2 = new QLabel(widget_4);
+        mSelectedFilename2->setObjectName(QString::fromUtf8("mSelectedFilename2"));
 
-        verticalLayout_2->addWidget(FichierSortieLabel);
+        verticalLayout_2->addWidget(mSelectedFilename2);
 
 
         horizontalLayout_7->addLayout(verticalLayout_2);
@@ -202,7 +209,7 @@ public:
 
         verticalLayout_5->addWidget(widget_4);
 
-        widget_5 = new QWidget(groupBox);
+        widget_5 = new QWidget(mOutputGroupBox);
         widget_5->setObjectName(QString::fromUtf8("widget_5"));
         horizontalLayout_6 = new QHBoxLayout(widget_5);
         horizontalLayout_6->setSpacing(6);
@@ -211,11 +218,11 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        InsertStatsBox = new QCheckBox(widget_5);
-        InsertStatsBox->setObjectName(QString::fromUtf8("InsertStatsBox"));
-        InsertStatsBox->setCursor(QCursor(Qt::CrossCursor));
+        mIncludeStatInfoCheckBox = new QCheckBox(widget_5);
+        mIncludeStatInfoCheckBox->setObjectName(QString::fromUtf8("mIncludeStatInfoCheckBox"));
+        mIncludeStatInfoCheckBox->setCursor(QCursor(Qt::CrossCursor));
 
-        horizontalLayout_3->addWidget(InsertStatsBox);
+        horizontalLayout_3->addWidget(mIncludeStatInfoCheckBox);
 
 
         horizontalLayout_6->addLayout(horizontalLayout_3);
@@ -224,7 +231,7 @@ public:
         verticalLayout_5->addWidget(widget_5);
 
 
-        gridLayout->addWidget(groupBox, 1, 0, 1, 1);
+        gridLayout->addWidget(mOutputGroupBox, 1, 0, 1, 1);
 
 
         horizontalLayout_9->addWidget(widget);
@@ -252,10 +259,10 @@ public:
 
         horizontalLayout_2->addItem(horizontalSpacer);
 
-        XtractCommentButton = new QPushButton(PushButton);
-        XtractCommentButton->setObjectName(QString::fromUtf8("XtractCommentButton"));
+        mProcessButton = new QPushButton(PushButton);
+        mProcessButton->setObjectName(QString::fromUtf8("mProcessButton"));
 
-        horizontalLayout_2->addWidget(XtractCommentButton);
+        horizontalLayout_2->addWidget(mProcessButton);
 
 
         horizontalLayout_5->addLayout(horizontalLayout_2);
@@ -314,16 +321,16 @@ public:
     void retranslateUi(QMainWindow *CppXtractClass)
     {
         CppXtractClass->setWindowTitle(QApplication::translate("CppXtractClass", "CppXtract", nullptr));
-        SelecFichierEntreeButton->setText(QApplication::translate("CppXtractClass", "S\303\251lectionnez un fichier d'entr\303\251e...", nullptr));
-        FichierEntreeLabel->setText(QApplication::translate("CppXtractClass", "<html><head/><body><p align=\"center\">&lt;Aucun fichier de s\303\251lectionn\303\251&gt;</p></body></html>", nullptr));
-        groupBox->setTitle(QApplication::translate("CppXtractClass", "Option de sortie", nullptr));
-        ScreenButton->setText(QApplication::translate("CppXtractClass", "\303\200 l'\303\251cran", nullptr));
-        PressPapierButton->setText(QApplication::translate("CppXtractClass", "Vers le presse papier", nullptr));
-        FichierSortieButton->setText(QApplication::translate("CppXtractClass", "Vers un fichier de sortie", nullptr));
-        SelecFichierSortieButton->setText(QApplication::translate("CppXtractClass", "S\303\251lectionnez les fichiers de sortie...", nullptr));
-        FichierSortieLabel->setText(QApplication::translate("CppXtractClass", "<html><head/><body><p align=\"center\">&lt;Aucun fichier s\303\251lectionn\303\251&gt;</p></body></html>", nullptr));
-        InsertStatsBox->setText(QApplication::translate("CppXtractClass", "Ins\303\251rer les statistiques", nullptr));
-        XtractCommentButton->setText(QApplication::translate("CppXtractClass", "Extraire les commentaires...", nullptr));
+        mSelectFileButton1->setText(QApplication::translate("CppXtractClass", "S\303\251lectionnez un fichier d'entr\303\251e...", nullptr));
+        mSelectedFilename1->setText(QApplication::translate("CppXtractClass", "<html><head/><body><p align=\"center\">&lt;Aucun fichier de s\303\251lectionn\303\251&gt;</p></body></html>", nullptr));
+        mOutputGroupBox->setTitle(QApplication::translate("CppXtractClass", "Option de sortie", nullptr));
+        mOutputScreenRadioButton->setText(QApplication::translate("CppXtractClass", "\303\200 l'\303\251cran", nullptr));
+        mOutputClipboardRadioButton->setText(QApplication::translate("CppXtractClass", "Vers le presse papier", nullptr));
+        mOutputFileRadioButton->setText(QApplication::translate("CppXtractClass", "Vers un fichier de sortie", nullptr));
+        mSelectFileButton2->setText(QApplication::translate("CppXtractClass", "S\303\251lectionnez les fichiers de sortie...", nullptr));
+        mSelectedFilename2->setText(QApplication::translate("CppXtractClass", "<html><head/><body><p align=\"center\">&lt;Aucun fichier s\303\251lectionn\303\251&gt;</p></body></html>", nullptr));
+        mIncludeStatInfoCheckBox->setText(QApplication::translate("CppXtractClass", "Ins\303\251rer les statistiques", nullptr));
+        mProcessButton->setText(QApplication::translate("CppXtractClass", "Extraire les commentaires...", nullptr));
         mAboutCppXtractButton->setText(QApplication::translate("CppXtractClass", "\303\200 propos de CppXtract...", nullptr));
         mAboutCppButton->setText(QApplication::translate("CppXtractClass", "\303\200 propos du langage C++...", nullptr));
         mAboutQtButton->setText(QApplication::translate("CppXtractClass", "\303\200 propos de Qt...", nullptr));

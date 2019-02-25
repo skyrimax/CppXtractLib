@@ -1,5 +1,6 @@
 
-#include <CppXtract.h>
+#include <C:\Users\Frederic\Desktop\GIT - Copie\skyrimax\CppXtractLib\CppXtractLib\CppXtractLib\CppXtract.h>
+
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -10,9 +11,7 @@
 //#include "StringWriter.h"
 //#include "ScreenWriter.h"
 
-
 using namespace std;
-
 
 // Fonctions tests
 //Reader* testFileReader(const string & fileName);
@@ -43,11 +42,11 @@ int main(int argc, char **argv)
 	////Writer * writer{ testFileWriter(fullOutputName) };
 	////Writer * writer{ testStringWriter() };
 	//Writer * writer{ testScreeWriter() };
-
+	
 	// Créer un objet de type CppXtract
 	// Les diagrammes d'états-transitions seront créés automatiquement
 	// par cet objet
-	CppXtract cppXtract;
+	lib::CppXtract cppXtract;
 	//list<bool> acceptingStates{ cppXtract.process(*reader, *writer, true) };
 	list<bool> acceptingStates;
 	std::string testString;
