@@ -21,6 +21,9 @@ public:
 	const QString & outputFilename() const;
 	bool isStatIncluded() const;
 
+	// Fonction membre vérfiant la validité des options de sortie
+	bool isValid() const;
+
 private :
 	CppXtract* mMainWin;
 	QFileSelectorX* mInputFileSelector;

@@ -44,4 +44,7 @@ private slots:
 
 	// slot pour gérer l'état du bouton "process"
 	void updadeProcessButton();
+
+	// Slot pour exécuter l'extraction
+	void process();
 };

@@ -18,6 +18,15 @@ CppXtract::CppXtract(QWidget *parent)
 
 	// Création de l'objet de type QCppXtractParamWidget
 	mCppXtractParamWidget = new QCppXtractParamWidget(this);
+
+	// Désactiver le bouton d'éxtraction des commentaires
+	ui.extractButton->setEnabled(false);
+
+	// Provoque updateProcessButton quand parameterChanged est triggered par mQppXtractParamWidget
+	connect(mCppXtractParamWidget, &QCppXtractParamWidget::parameterChanged, this,
+		&CppXtract::updadeProcessButton);
+
+	connect(ui.extractButton, &QPushButton::clicked, this, &CppXtract::process);
 }
 
 void CppXtract::showAboutCppXtract()
@@ -107,4 +116,19 @@ void CppXtract::showAboutQt()
 
 void CppXtract::updadeProcessButton()
 {
+	ui.extractButton->setEnabled(mCppXtractParamWidget->isValid());
+}
+
+void CppXtract::process()
+{
+	QString errorMsg;
+
+	// D'abord s'assurer que le fichier d'entrée est valide
+	QFileInfo inputFileInfo(mCppXtractParamWidget->inputFilename());
+	if (!fileOk(inputFileInfo, errorMsg))
+	{
+		QMessageBox::warning(this, "Erreur", errorMsg + "\nAucune extraction n'a eu lieu");
+		return;
+	}
+	//Créer la FST pour l'extraction des commentaires
 }

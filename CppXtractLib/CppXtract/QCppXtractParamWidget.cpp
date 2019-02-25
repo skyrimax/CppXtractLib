@@ -76,6 +76,27 @@ QCppXtractParamWidget::QCppXtractParamWidget(CppXtract* mainWin)
 		this, &QCppXtractParamWidget::parameterChanged);
 }
 
+bool QCppXtractParamWidget::isValid() const
+{
+	// Pas de fichier sélectionner, retourner faux
+	if (!mInputFileSelector->isFileSelected())
+	{
+		return false;
+	}
+	
+	//Si fichier sélectionner, dépend de l'option sélectionnée
+	switch (static_cast<OutputType>(mButtonGroup->checkedId()))
+	{
+	case OutputType::Screen:
+		return true;
+	case OutputType::Clipboard:
+		return true;
+	case OutputType::File:
+		return mOutputFileSelector->isFileSelected();
+	}
+	return false;
+}
+
 void QCppXtractParamWidget::updateGui()
 {
 	// Activer les options de sortie si un fichier d'entré est sélectionné
