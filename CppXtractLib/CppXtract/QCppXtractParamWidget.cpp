@@ -19,6 +19,7 @@ QCppXtractParamWidget::QCppXtractParamWidget(CppXtract* mainWin)
 	mInputFileSelector->setButtonText(u8R"(Sélectionner un fichier d'entrée)");
 	mInputFileSelector->setOpen(u8R"(Sélectionner une fichier d'entrée)",
 		"Fichiers C++ (*.h *.hpp *.hxx *.cpp *.cc *.c *.cxx *.c++)");
+	mInputFileSelector->setComplyFileNameFunction(complyFileName);
 
 	mOutputFileSelector->setButtonText(u8R"(Sélectionner un fichier de sortie)");
 	mOutputFileSelector->setOpen(u8R"(Sélectionner une fichier de sortie)",
