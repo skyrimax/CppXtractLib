@@ -104,3 +104,7 @@ void CppXtract::showAboutQt()
 {
 	qApp->aboutQt();
 }
+
+void CppXtract::updadeProcessButton()
+{
+}

@@ -12,6 +12,9 @@ class QCppXtractParamWidget : public QWidget
 	Q_OBJECT
 
 public:
+
+	enum class OutputType { Screen = 0, Clipboard = 1, File = 2 };
+
 	QCppXtractParamWidget(CppXtract* mainWin);
 
 	const QString & inputFilename() const;
@@ -22,4 +25,17 @@ private :
 	CppXtract* mMainWin;
 	QFileSelectorX* mInputFileSelector;
 	QFileSelectorX* mOutputFileSelector;
+
+	QButtonGroup* mButtonGroup;
+	QGroupBox* mOutputGroupBox;
+	QRadioButton* mOutputScreenRadioButton;
+	QRadioButton* mOutputClipboardRadioButton;
+	QRadioButton* mOutputFileRadioButton;
+	QCheckBox* mIncludeStatInfoCheckBox;
+
+signals:
+	void parameterChanged();
+
+private slots:
+	void updateGui();
 };

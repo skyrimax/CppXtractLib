@@ -20,12 +20,28 @@ public:
 	QPushButton* getOutputFileButton() { return ui.fileSlectorButtonOutput; }
 	QLabel* getOutputFilename() { return ui.outputFilePathLabel; }
 
+	// Accesseurs boutons ratio
+	QButtonGroup* getButtonGroup() { return ui.outputOptionButtonGroup; }
+	QRadioButton* getOutputScreenRadioButton() { return ui.screenRadioButton; }
+	QRadioButton* getOutputClipboardRadioButton() { return ui.clipboardRadioButton; }
+	QRadioButton* getOutputFileRadioButton() { return ui.fileRadioButton; }
+
+	// Accesseur Group Box
+	QGroupBox* getOutputGroupBox() { return ui.outputOptions;  }
+
+	// Accesseur checkbox stats
+	QCheckBox* getIncludeStatInfoCheckBox() { return ui.statisticsCheckBox;  }
+
 private:
 	Ui::CppXtractClass ui;
 	QCppXtractParamWidget* mCppXtractParamWidget;
 
 private slots:
+	// Slots d'affichage des message "À propos"
 	void showAboutCppXtract();
 	void showAboutCpp();
 	void showAboutQt();
+
+	// slot pour gérer l'état du bouton "process"
+	void updadeProcessButton();
 };

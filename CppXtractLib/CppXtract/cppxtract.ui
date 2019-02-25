@@ -88,6 +88,9 @@
              <property name="text">
               <string>À l'écran</string>
              </property>
+             <attribute name="buttonGroup">
+              <string notr="true">outputOptionButtonGroup</string>
+             </attribute>
             </widget>
            </item>
            <item>
@@ -95,6 +98,9 @@
              <property name="text">
               <string>Vers le presse papier</string>
              </property>
+             <attribute name="buttonGroup">
+              <string notr="true">outputOptionButtonGroup</string>
+             </attribute>
             </widget>
            </item>
            <item>
@@ -102,6 +108,9 @@
              <property name="text">
               <string>Vers un fichier de sortie</string>
              </property>
+             <attribute name="buttonGroup">
+              <string notr="true">outputOptionButtonGroup</string>
+             </attribute>
             </widget>
            </item>
            <item>
@@ -288,4 +297,7 @@
   <slot>showAboutCpp()</slot>
   <slot>showAboutQt()</slot>
  </slots>
+ <buttongroups>
+  <buttongroup name="outputOptionButtonGroup"/>
+ </buttongroups>
 </ui>

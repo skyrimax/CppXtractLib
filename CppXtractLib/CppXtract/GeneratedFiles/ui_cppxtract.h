@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
@@ -58,6 +59,7 @@ public:
     QPushButton *aboutCPlusPlusButton;
     QPushButton *aboutQtButton;
     QSpacerItem *verticalSpacer_2;
+    QButtonGroup *outputOptionButtonGroup;
 
     void setupUi(QWidget *CppXtractClass)
     {
@@ -113,16 +115,21 @@ public:
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         screenRadioButton = new QRadioButton(outputOptions);
+        outputOptionButtonGroup = new QButtonGroup(CppXtractClass);
+        outputOptionButtonGroup->setObjectName(QString::fromUtf8("outputOptionButtonGroup"));
+        outputOptionButtonGroup->addButton(screenRadioButton);
         screenRadioButton->setObjectName(QString::fromUtf8("screenRadioButton"));
 
         verticalLayout_3->addWidget(screenRadioButton);
 
         clipboardRadioButton = new QRadioButton(outputOptions);
+        outputOptionButtonGroup->addButton(clipboardRadioButton);
         clipboardRadioButton->setObjectName(QString::fromUtf8("clipboardRadioButton"));
 
         verticalLayout_3->addWidget(clipboardRadioButton);
 
         fileRadioButton = new QRadioButton(outputOptions);
+        outputOptionButtonGroup->addButton(fileRadioButton);
         fileRadioButton->setObjectName(QString::fromUtf8("fileRadioButton"));
 
         verticalLayout_3->addWidget(fileRadioButton);

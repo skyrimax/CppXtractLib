@@ -75,6 +75,12 @@ void QFileSelectorX::setComplyFileNameFunction(ComplyFileNameFunction complyFile
 	mComplyFileNameFunction = complyFileNameFunction;
 }
 
+void QFileSelectorX::setEnabled(bool b)
+{
+	mButton->setEnabled(b);
+	mFileName->setEnabled(b);
+}
+
 // Accesseurs
 bool QFileSelectorX::isFileSelected() const
 {

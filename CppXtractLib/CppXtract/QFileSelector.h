@@ -59,6 +59,9 @@ public:
 	void setNoFileSelectedText(const QString & text);
 	// Mutateur définissant la fonction qui rendra conforme le nom de fichier pour l'affichage.
 	void setComplyFileNameFunction(ComplyFileNameFunction complyFileNameFunction);
+	// Fonction membre pour activer/désactiver le bouton et l'étiquette de texte
+	void setEnabled(bool b);
+
 
 	// Signaux (tous les signaux sont public)
 signals:
