@@ -1,6 +1,10 @@
 #include "CppXtractLibGUI.h"
 #include "QCppXtractParamWidget.h"
 #include "qmessagebox.h"
+#include "CppXtract.h"
+#include <qclipboard.h>
+#include "qtplaintextdialog.h"
+
 
 // Déclaration anticipée
 class CppXtractLibGUI;
@@ -20,6 +24,18 @@ CppXtractLibGUI::CppXtractLibGUI(QWidget *parent)
 
 	// Créer un objet de classe QCppXtractParamWidget et lui passer un pointeur de la fenêtre principale.
 	mCppXtractParamWidget = new QCppXtractParamWidget(this);
+
+	// Désactiver le bouton "Extraire les commentaires"
+	ui.mProcessButton->setEnabled(false);
+
+	// Connecter le signal parameterChanged() venant de QCppXtractParamWidget
+	// au slot updateProcessButton() de CppXtractLibGUI (fenêtre principale)
+	connect(mCppXtractParamWidget, &QCppXtractParamWidget::parameterChanged, this, 
+		&CppXtractLibGUI::updateProcessButton);
+
+	// Connecter le signal clicked venant du bouton "Extraire les commentaires"
+	// au slot process() de CppXtractLibGUI (fenêtre principale)
+	connect(ui.mProcessButton, &QPushButton::clicked, this, &CppXtractLibGUI::process);
 }
 
 void CppXtractLibGUI::showAboutCppXtract(){
@@ -71,5 +87,121 @@ void CppXtractLibGUI::showAboutCpp(){
 }
 void CppXtractLibGUI::showAboutQt() { qApp->aboutQt(); }
 
-// Laissé vide --- temporairement.
-void CppXtractLibGUI::updateProcessButton(){}
+// Active le bouton "Extraire les commentaires" si les options de sorties sont valides
+void CppXtractLibGUI::updateProcessButton(){
+	ui.mProcessButton->setEnabled(mCppXtractParamWidget->isValid());
+}
+
+// Extraction
+void CppXtractLibGUI::process() {
+	QString errorMsg;
+
+	// D'abord s'assurer que le fichier d'entrée est valide
+	QFileInfo inputFileInfo(mCppXtractParamWidget->inputFilename());
+	if (!fileOk(inputFileInfo, errorMsg)) {
+		QMessageBox::warning(this, "Erreur", errorMsg + "\nAucune extraction n'a eu lieu");
+		return;
+	}
+	// Créer la FST pour l'extraction des commentaires
+	CppXtract cppXtract;
+
+	// Exécuter l'extraction des commentaires selon les options de sortie
+	switch (mCppXtractParamWidget->outputType()) {
+		// L'utilisateur a sélectionné la sortie vers un fichier
+		case QCppXtractParamWidget::OutputType::File: {
+			errorMsg.clear();
+			QFileInfo outputFileInfo(mCppXtractParamWidget->outputFilename());
+				// Extra paranoyé
+			if (!fileOk(outputFileInfo, errorMsg, false)) {
+				QMessageBox::warning(this, "Erreur", errorMsg + "\nAucune extraction n'a eu lieu");
+				return;
+			}
+			else {
+					// Exécute l'extraction
+					cppXtract.processFromFileToFile(inputFileInfo.filePath().toStdString(),
+						outputFileInfo.filePath().toStdString(),
+						mCppXtractParamWidget->isStatIncluded());
+					QMessageBox::information(this, u8R"(Opération terminée)",
+						QString(u8R"(Le fichier de sortie )") + "\"" + outputFileInfo.fileName() +
+						"\" " + u8R"( a été créé.)");
+			}
+			break;
+		}
+			// L'utilisateur a choisi la sortie vers le presse papier
+		case QCppXtractParamWidget::OutputType::Clipboard: {
+			QMessageBox::information(this, u8R"(Opération sélectionnée)",
+				QString(u8R"(Copiez le presse-papier dans un fichier texte!)"));
+			QClipboard *XtractClipboard = QGuiApplication::clipboard();
+			std::string str;
+			cppXtract.processFromFileToString(inputFileInfo.filePath().toStdString(),
+				str,
+				mCppXtractParamWidget->isStatIncluded());
+
+			QString clipcomment = QString::fromLocal8Bit(str.c_str());
+
+			XtractClipboard->setText(clipcomment);
+			break;
+		}
+			// L'utilisateur a choisi la sortie vers l'écran
+		case QCppXtractParamWidget::OutputType::Screen: {
+			QMessageBox::information(this, u8R"(Opération sélectionnée)",
+				QString(u8R"(Le résultat s'affichera à l'écran suivante!)"));
+
+			std::string str;
+			cppXtract.processFromFileToString(inputFileInfo.filePath().toStdString(),
+				str,
+				mCppXtractParamWidget->isStatIncluded());
+
+			QString screencomment = QString::fromLocal8Bit(str.c_str());
+			
+			QtPlainTextDialog resultDialog(this,
+				screencomment);
+			resultDialog.exec();
+			break;
+		}
+	}//fin de switch-case
+
+
+}// fin de la fonction process()
+
+bool CppXtractLibGUI::fileOk(const QFileInfo & xFile, QString &errMsg, bool checkRead) {
+	// Préparer le message d'erreur...
+	errMsg = checkRead ? u8R"(Le fichier d'entrée)" : "Le fichier de sortie ";
+	errMsg += QString("\"") + xFile.fileName() + "\"" + " : ";
+
+	// D'abord s'assurer que le nom du fichier n'est pas vide (parano)
+	if (xFile.fileName().isEmpty()) {
+		errMsg += "N'a pas de nom.\n";
+		return false;
+	}
+	// Ensuite s'assurer que le chemin est un dossier qui existe
+	if (!QFileInfo(xFile.path()).isDir()) {
+		errMsg += "Son chemin est incorrect.\n";
+		return false;
+	}
+	// En lecture...
+	if (checkRead) {
+		// S'assurer que l'utilisateur a la permission lecutre
+		if (!QFileInfo(xFile.filePath()).isReadable()) {
+			errMsg += QString(u8R"(Il est protégé contre la lecture.)") + "\n";
+			return false;
+		}
+	}
+	// En écriture...
+	else {
+		// L'utilisateur doit avoir la permission d'écriture
+		// dans ce dosier
+		if (!QFileInfo(xFile.path()).isWritable()) {
+			errMsg += QString(u8R"(Pas de permission d'écriture dans le dossier.)") + "\n";
+				return false;
+		}
+		// Si le fichier de sortie existe alors l'utilisateur doit
+		// avoir la permission d'écriture dans le fichier (écraser le fichier)
+		if ((QFileInfo(xFile.filePath()).exists()) && !QFileInfo(xFile.filePath()).isWritable()) {
+			errMsg += QString(u8R"(Il est protégé contre l'écriture.)") + "\n";
+			return false;
+		}
+	}
+	// Tout va bien
+	return true;
+}

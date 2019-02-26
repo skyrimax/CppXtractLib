@@ -95,3 +95,46 @@ void QCppXtractParamWidget::updateGui() {
 
 
 }
+
+// Vérifie la validité des options de sorties
+bool QCppXtractParamWidget::isValid() const {
+	// Pas de fichier d'entrée?
+	if (!mInputFileSelector->isFileSelected()) {
+		return false;
+	}
+	// Quel bouton a été sélectionné?
+	switch (static_cast<OutputType>(mButtonGroup->checkedId())) {
+	case OutputType::Screen:
+		return true;
+	case OutputType::Clipboard:
+		return true;
+	case OutputType::File:
+		return mOutputFileSelector->isFileSelected();
+	}
+	return false;
+}
+
+// Convertir l'énumération en valeur entière
+QCppXtractParamWidget::OutputType QCppXtractParamWidget::outputType() const
+{
+	return static_cast<OutputType>(mButtonGroup->checkedId());
+}
+
+// Retourner le chemin et le nom du fichier d'entrée sélectionné
+const QString & QCppXtractParamWidget::inputFilename() const 
+{
+	return mInputFileSelector->selectedFile();
+}
+
+// Retourner le chemin et le nom du fichier de sortie sélectionné
+const QString & QCppXtractParamWidget::outputFilename() const 
+{
+	return mOutputFileSelector->selectedFile();
+}
+
+// Retourner l'état de la case à cocher
+// (s'il faut inclure les statistiques de comptage des caractères)
+bool QCppXtractParamWidget::isStatIncluded() const
+{
+	return mIncludeStatInfoCheckBox->isChecked();
+}

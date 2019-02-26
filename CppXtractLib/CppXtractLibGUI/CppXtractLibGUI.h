@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_CppXtractLibGUI.h"
+#include "qfileinfo.h"
 
 class QCppXtractParamWidget; //déclaration anticipée
 
@@ -27,17 +28,24 @@ public:
 	QRadioButton *getOutputClipboardRadioButton() { return ui.mOutputClipboardRadioButton; }
 	QRadioButton *getOutputFileRadioButton() { return ui.mOutputFileRadioButton; }
 	QCheckBox *getIncludeStatInfoCheckBox() { return ui.mIncludeStatInfoCheckBox; }
-
 	
+	bool fileOk(const QFileInfo &xFile, QString &errMsg, bool checkRead=true);
+
 private slots:
 	// slots pour afficher les messages "À propos"
 	void showAboutCppXtract();
 	void showAboutCpp();
 	void showAboutQt();
+	
 	// slot pour gérer l'état du bouton "process"
 	void updateProcessButton();
+
+	// slot pour exécuter l'extraction
+	void process();
+
 
 private:
 	Ui::CppXtractLibGUIClass ui; // ne pas envoyer le UI complet aux classes enfants
 	QCppXtractParamWidget *mCppXtractParamWidget;
+
 };

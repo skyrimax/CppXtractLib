@@ -17,9 +17,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>450</y>
-      <width>791</width>
+      <width>801</width>
       <height>25</height>
      </rect>
     </property>
@@ -50,9 +50,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>60</y>
-      <width>781</width>
+      <width>801</width>
       <height>44</height>
      </rect>
     </property>
@@ -79,9 +79,9 @@
    <widget class="QGroupBox" name="mOutputGroupBox">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>140</y>
-      <width>781</width>
+      <width>801</width>
       <height>181</height>
      </rect>
     </property>
@@ -178,6 +178,19 @@
       <string>Insérer les statistiques de comptage</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="mProcessButton">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>380</y>
+      <width>161</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Extraire les commentaires</string>
+    </property>
    </widget>
   </widget>
  </widget>

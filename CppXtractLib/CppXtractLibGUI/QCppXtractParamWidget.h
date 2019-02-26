@@ -18,9 +18,15 @@ public:
 	const QString & inputFilename() const;
 	const QString & outputFilename() const;
 	bool isStatIncluded() const;
+	
+
+	// Validation
+	bool isValid() const;
 
 	// Ajout de la classe "Output"
 	enum class OutputType {Screen = 0 , Clipboard = 1 ,File = 2 };
+
+	OutputType outputType() const;
 
 private:
 	CppXtractLibGUI * mainWin;

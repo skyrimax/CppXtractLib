@@ -46,6 +46,7 @@ public:
     QPushButton *mSelectFileButton2;
     QLabel *mSelectedFilename2;
     QCheckBox *mIncludeStatInfoCheckBox;
+    QPushButton *mProcessButton;
     QButtonGroup *mButtonGroup;
 
     void setupUi(QMainWindow *CppXtractLibGUIClass)
@@ -57,7 +58,7 @@ public:
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         layoutWidget = new QWidget(centralWidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(50, 450, 791, 25));
+        layoutWidget->setGeometry(QRect(40, 450, 801, 25));
         aboutButtonLayout = new QHBoxLayout(layoutWidget);
         aboutButtonLayout->setSpacing(6);
         aboutButtonLayout->setContentsMargins(11, 11, 11, 11);
@@ -80,7 +81,7 @@ public:
 
         layoutWidget1 = new QWidget(centralWidget);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(50, 60, 781, 44));
+        layoutWidget1->setGeometry(QRect(40, 60, 801, 44));
         selectFileLayout1 = new QVBoxLayout(layoutWidget1);
         selectFileLayout1->setSpacing(6);
         selectFileLayout1->setContentsMargins(11, 11, 11, 11);
@@ -99,7 +100,7 @@ public:
 
         mOutputGroupBox = new QGroupBox(centralWidget);
         mOutputGroupBox->setObjectName(QString::fromUtf8("mOutputGroupBox"));
-        mOutputGroupBox->setGeometry(QRect(50, 140, 781, 181));
+        mOutputGroupBox->setGeometry(QRect(40, 140, 801, 181));
         mOutputScreenRadioButton = new QRadioButton(mOutputGroupBox);
         mButtonGroup = new QButtonGroup(CppXtractLibGUIClass);
         mButtonGroup->setObjectName(QString::fromUtf8("mButtonGroup"));
@@ -136,6 +137,9 @@ public:
         mIncludeStatInfoCheckBox = new QCheckBox(mOutputGroupBox);
         mIncludeStatInfoCheckBox->setObjectName(QString::fromUtf8("mIncludeStatInfoCheckBox"));
         mIncludeStatInfoCheckBox->setGeometry(QRect(10, 150, 261, 17));
+        mProcessButton = new QPushButton(centralWidget);
+        mProcessButton->setObjectName(QString::fromUtf8("mProcessButton"));
+        mProcessButton->setGeometry(QRect(680, 380, 161, 23));
         CppXtractLibGUIClass->setCentralWidget(centralWidget);
 
         retranslateUi(CppXtractLibGUIClass);
@@ -161,6 +165,7 @@ public:
         mSelectFileButton2->setText(QApplication::translate("CppXtractLibGUIClass", "S\303\251lectionner un fichier...", nullptr));
         mSelectedFilename2->setText(QApplication::translate("CppXtractLibGUIClass", "TextLabel", nullptr));
         mIncludeStatInfoCheckBox->setText(QApplication::translate("CppXtractLibGUIClass", "Ins\303\251rer les statistiques de comptage", nullptr));
+        mProcessButton->setText(QApplication::translate("CppXtractLibGUIClass", "Extraire les commentaires", nullptr));
     } // retranslateUi
 
 };
