@@ -24,7 +24,7 @@ QCppXtractParamWidget::QCppXtractParamWidget(CppXtract* mainWin)
 	// Poser les textes affichés dans les boîtes de dialogue File Explorer
 	mOutputFileSelector->setButtonText(u8R"(Sélectionner un fichier de sortie)");
 	mOutputFileSelector->setOpen(u8R"(Sélectionner une fichier de sortie)",
-		"Fichiers C++ (*.h *.hpp *.hxx *.cpp *.cc *.c *.cxx *.c++)");
+		"Fichiers C++ (*.h *.hpp *.hxx *.cpp *.cc *.c *.cxx *.c++ *.txt)");
 	mOutputFileSelector->setComplyFileNameFunction(complyFileName);
 
 	// Assigner les pointeurs pour les boutons radio
@@ -76,6 +76,21 @@ QCppXtractParamWidget::QCppXtractParamWidget(CppXtract* mainWin)
 		this, &QCppXtractParamWidget::parameterChanged);
 }
 
+const QString & QCppXtractParamWidget::inputFilename() const
+{
+	return mInputFileSelector->selectedFile();
+}
+
+const QString & QCppXtractParamWidget::outputFilename() const
+{
+	return mOutputFileSelector->selectedFile();
+}
+
+bool QCppXtractParamWidget::isStatIncluded() const
+{
+	return mIncludeStatInfoCheckBox->isChecked();
+}
+
 bool QCppXtractParamWidget::isValid() const
 {
 	// Pas de fichier sélectionner, retourner faux
@@ -95,6 +110,11 @@ bool QCppXtractParamWidget::isValid() const
 		return mOutputFileSelector->isFileSelected();
 	}
 	return false;
+}
+
+QCppXtractParamWidget::OutputType QCppXtractParamWidget::outputType()
+{
+	return static_cast<OutputType>(mButtonGroup->checkedId());
 }
 
 void QCppXtractParamWidget::updateGui()

@@ -123,10 +123,10 @@
     <ClInclude Include="StringReader.h">
       <Filter>Header Files\Reader</Filter>
     </ClInclude>
-    <ClInclude Include="CppXtract.h">
+    <ClInclude Include="FST.h">
       <Filter>Header Files\FST</Filter>
     </ClInclude>
-    <ClInclude Include="FST.h">
+    <ClInclude Include="CppXtractLib.h">
       <Filter>Header Files\FST</Filter>
     </ClInclude>
   </ItemGroup>
@@ -203,10 +203,10 @@
     <ClCompile Include="StringReader.cpp">
       <Filter>Source Files\Reader</Filter>
     </ClCompile>
-    <ClCompile Include="CppXtract.cpp">
+    <ClCompile Include="FST.cpp">
       <Filter>Source Files\FST</Filter>
     </ClCompile>
-    <ClCompile Include="FST.cpp">
+    <ClCompile Include="CppXtractLib.cpp">
       <Filter>Source Files\FST</Filter>
     </ClCompile>
   </ItemGroup>

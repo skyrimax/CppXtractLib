@@ -24,6 +24,9 @@ public:
 	// Fonction membre vérfiant la validité des options de sortie
 	bool isValid() const;
 
+	// Accesseur du type de sortie
+	OutputType outputType();
+
 private :
 	CppXtract* mMainWin;
 	QFileSelectorX* mInputFileSelector;

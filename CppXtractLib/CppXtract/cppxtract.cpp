@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "cppxtract.h"
 #include "QCppXtractParamWidget.h"
+#include <CppXtractLib.h>
 
 //class QCppXtractParamWidget; // Déclaration anticipée
 
@@ -50,6 +51,48 @@ Version 1.0)---" };
 
 	// Afficher le message
 	QMessageBox::about(this, u8R"(À propos de CppXtract)", aboutCppXtract);
+}
+
+bool CppXtract::fileOk(const QFileInfo & xFile, QString & errMsg, bool checkRead)
+{
+	// Préparer le message d'erreur...
+	errMsg = checkRead ? u8R"(Le fichier d'entré )" : u8R"(Le fichier de sortie )";
+	errMsg += QString("\"") + xFile.fileName() + "\"" + " : ";
+
+	// D'abord s'assurer que le nom du fichier n'est pas vide (parano)
+	if (xFile.fileName().isEmpty())
+	{
+		errMsg += "N'a pas de nom.\n";
+		return false;
+	}
+	// En lecture...
+	if (checkRead)
+	{
+		// S'assurer que l'utilisateur a la permission de lecture
+		if (!QFileInfo(xFile.filePath()).isReadable())
+		{
+			errMsg += QString(u8R"(Il est protégé contre la lecture.)") + "\n";
+			return false;
+		}
+	}
+	else
+	{
+		// L'utilisateur doit avoir la d'écriture dans le dossier
+		if (!QFileInfo(xFile.filePath()).isWritable())
+		{
+			errMsg += QString(u8R"(Pas de permission d'écriture dans le dossier.)") + "\n";
+			return false;
+		}
+		// L'utilisateur doit avoir les droits d'écriture dans le fichier
+		// si celui-ci existe
+		if ((QFileInfo(xFile.filePath()).exists()) && !QFileInfo(xFile.filePath()).isWritable())
+		{
+			errMsg += QString(u8R"(Il est protégé contre l'écriture.)") + "\n";
+			return false;
+		}
+	}
+	// Tout va bien
+	return true;
 }
 
 void CppXtract::showAboutCpp()
@@ -125,10 +168,72 @@ void CppXtract::process()
 
 	// D'abord s'assurer que le fichier d'entrée est valide
 	QFileInfo inputFileInfo(mCppXtractParamWidget->inputFilename());
-	if (!fileOk(inputFileInfo, errorMsg))
+	if (!fileOk(inputFileInfo, errorMsg, true))
 	{
 		QMessageBox::warning(this, "Erreur", errorMsg + "\nAucune extraction n'a eu lieu");
 		return;
 	}
 	//Créer la FST pour l'extraction des commentaires
+	cppXtractLib::CppXtract cppXtract;
+	// Exécuter l'extraction des commentaires selon les options de sortie
+	switch (mCppXtractParamWidget->outputType())
+	{
+		//L'utilisateur a sélectionné la sortie vars un fichier
+	case QCppXtractParamWidget::OutputType::File:
+	{
+		errorMsg.clear();
+		QFileInfo outputFileInfo(mCppXtractParamWidget->outputFilename());
+		// Méga parano
+		if (!fileOk(outputFileInfo, errorMsg, false))
+		{
+			QMessageBox::warning(this, "Erreur", errorMsg + "\nAucune extraction n'a eu lieu");
+			return;
+		}
+		else
+		{
+			// Exécuter l'extraction
+			cppXtract.processFromFileToFile(inputFileInfo.filePath().toStdString(),
+				outputFileInfo.filePath().toStdString(),
+				mCppXtractParamWidget->isStatIncluded());
+			QMessageBox::information(this, u8R"(Opération terminée)",
+				QString(u8R"(Le fichier de sortie )") + "\"" + outputFileInfo.filePath() +
+				"\"" + u8R"( a été créé.)");
+		}
+		break;
+	}
+		// L'utilisateur a choisi la sortie vers le presse-papier
+	case QCppXtractParamWidget::OutputType::Clipboard:
+	{
+		/*QMessageBox::information(this, u8R"(Opération sélectionnée)",
+			QString(u8R"(Il faut envoyer les résultats vers le presse papier!)"));*/
+
+		//Création d'un pointeur sur le clipboard
+		QClipboard* clipboard = QGuiApplication::clipboard();
+		std::string str;
+
+		if (!clipboard)
+		{
+			QMessageBox::warning(this, "Erreur", QString("N'as pas pu avoir acces au presse-papier")
+				+ "\nAucune extraction n'as eu lieu");
+			return;
+		}
+		else
+		{
+			//Exécute l'extraction
+			cppXtract.processFromFileToString(inputFileInfo.filePath().toStdString(),
+				str, mCppXtractParamWidget->isStatIncluded());
+			clipboard->setText(QString(str.c_str()));
+			QMessageBox::information(this, u8R"(Opération terminée)",
+				QString(u8R"(Le résultat à été placé dans le presse-papier)"));
+		}
+		break;
+	}
+		// L'utilisateur a choisi vers l'écran
+	case QCppXtractParamWidget::OutputType::Screen:
+	{
+		QMessageBox::information(this, u8R"(Opération sélectionnée)",
+			QString(u8R"(Il faut envoyer les résultats vers l'écran!)"));
+		break;
+	}
+	}
 }

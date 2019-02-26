@@ -32,6 +32,9 @@ public:
 	// Accesseur checkbox stats
 	QCheckBox* getIncludeStatInfoCheckBox() { return ui.statisticsCheckBox;  }
 
+	// Fonction membre permettant de fériffier si un fichier est bien valide
+	bool fileOk(const QFileInfo &xFile, QString &errMsg, bool checkRead);
+
 private:
 	Ui::CppXtractClass ui;
 	QCppXtractParamWidget* mCppXtractParamWidget;
