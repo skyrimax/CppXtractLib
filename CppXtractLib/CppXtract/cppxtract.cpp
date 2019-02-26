@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "cppxtract.h"
 #include "QCppXtractParamWidget.h"
+#include "qtplaintextdialog.h"
 #include <CppXtractLib.h>
 
 //class QCppXtractParamWidget; // Déclaration anticipée
@@ -231,8 +232,21 @@ void CppXtract::process()
 		// L'utilisateur a choisi vers l'écran
 	case QCppXtractParamWidget::OutputType::Screen:
 	{
-		QMessageBox::information(this, u8R"(Opération sélectionnée)",
-			QString(u8R"(Il faut envoyer les résultats vers l'écran!)"));
+		/*QMessageBox::information(this, u8R"(Opération sélectionnée)",
+			QString(u8R"(Il faut envoyer les résultats vers l'écran!)"));*/
+
+		// Test le l'output vers l'écran
+		/*QtPlainTextDialog resultDialog(this,
+			QString("Bla\nBla\nBla.\nJ'aime faire des devoirs.\nBla\nBla\nBla!!"));*/
+
+		std::string str;
+
+		// Output vers l'écran
+		cppXtract.processFromFileToString(inputFileInfo.filePath().toStdString(),
+			str, mCppXtractParamWidget->isStatIncluded());
+		QtPlainTextDialog resultDialog(this,
+			QString(str.c_str()));
+		resultDialog.exec();
 		break;
 	}
 	}
