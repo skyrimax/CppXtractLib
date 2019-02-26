@@ -1,0 +1,115 @@
+Line no :     1   [C-style]
+/* * * * * * * * * * * * * * 
+ * Ce fichier contient une liste de tests visant a confirmer 
+ * la validation de l'extraction de commentaires provenant 
+ * d'un fichier C++ (c/h - cpp/hpp).
+ *
+ * Ce fichier n'est pas un programme valide et ne compile pas.
+ * Les accents ont ete retires afin de facilite l'affichage sur
+ * une console Windows.
+ * * * * * * * * * * * * * */
+
+Line no :    11   [C-style]
+/* 1re serie : Tests des commentaires de style C */
+
+Line no :    13   [C-style]
+/* Simples commentaires : style c */
+
+Line no :    14   [C-style]
+/* Commentaires sur plusieurs lignes :
+ligne 2
+ligne 3
+*/
+
+Line no :    18   [C-style]
+/* Commentaires sur plusieurs lignes incluant quelques caracteres de controle :
+multi ligne\
+"une chaine de caracteres"
+'c' un caractere
+*/
+
+Line no :    23   [C-style]
+/*en debut de ligne*/
+
+Line no :    24   [C-style]
+/*en milieu de ligne*/
+
+Line no :    25   [C-style]
+/* en fin de ligne*/
+
+Line no :    27   [C-style]
+/* Autres tests */
+
+Line no :    28   [C-style]
+/**************************************************/
+
+Line no :    29   [C-style]
+/*T*E*S*T*/
+
+Line no :    30   [C-style]
+/*\
+/*\
+*/
+
+Line no :    34   [C-style]
+/* Bug - La prochaine ligne n'est pas un commentaires */
+
+Line no :    37   [C-style]
+/* Est-ce un commentaire? *\
+/ 
+ce commentaire est valide... mais termine a la ligne suivante 
+et non pas a la ligne precedente.
+*/
+
+Line no :    43   [C++-style]
+// 2e serie : Tests des commentaires de style C++
+
+Line no :    45   [C++-style]
+// Commentaires sur une ligne complete
+
+Line no :    46   [C++-style]
+// Commentaire en fin de ligne
+
+Line no :    47   [C++-style]
+// Commentaire en fin de ligne multi ligne\
+qui va jusqu'ici\
+et meme plus loin!
+
+Line no :    50   [C++-style]
+// Commentaire multi-lignes encore une fois \
+qui termine ici!
+
+Line no :    53   [C++-style]
+// Bug - Les prochaines lignes ne sont pas des commentaires
+
+Line no :    58   [C++-style]
+// 3e serie : Divers
+
+Line no :    60   [C-style]
+/* Cacartere et chaines de caractère sans commentaires */
+
+Line no :    72   [C-style]
+/* Avec multi lignes */
+
+Line no :    78   [C-style]
+/* 
+Caractere et chaine de caracteres mal definies.
+Genere des erreurs de compilation, mais servent a valider la structure des commentaires.
+Ces 6 lignes generent 3 caracteres et 3 chaines de caracteres.
+*/
+
+
+
+Informations globales
+- - - - - - - - - - - - - - - - - - - - - - - - - - -
+ - Statistiques generales :
+   - espaces : 361
+   - lignes  : 89
+   - autres  : 1709
+ - Litteraux : 
+   - charactere            : 10
+   - chaînes de caracteres : 8
+ - Commentaires : 
+   - style C   : 17
+   - style C++ : 7
+- - - - - - - - - - - - - - - - - - - - - - - - - - -

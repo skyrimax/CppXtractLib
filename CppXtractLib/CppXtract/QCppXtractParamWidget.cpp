@@ -1,12 +1,11 @@
 #include "QCppXtractParamWidget.h"
 #include "stdafx.h"
-
 #include "cppxtract.h"
 #include "QFileSelector.h"
 #include "QtUtil.h"
 
 class CppXtract; //Déclaration anticipée
-class QFileSelectorX;
+class QFileSelectorX; //Déclaration anticipée
 
 QCppXtractParamWidget::QCppXtractParamWidget(CppXtract *mainWin)
 {
@@ -19,9 +18,9 @@ QCppXtractParamWidget::QCppXtractParamWidget(CppXtract *mainWin)
 
 	//Fichier de sortie
 	mOutputFileSelector = new QFileSelectorX(nullptr, mainWin->getOutputFileButton(), mainWin->getOutputFilename());
-	mOutputFileSelector->setButtonText(u8R"(Sélectionner un fichier d'entrée)");
-	mOutputFileSelector->setOpen(u8R"(Sélectionner un fichier d'entrée)",
-		"fichiers C++ (*.h *.hpp *.hxx *.cpp *.cc *.c *.cxx *.c++)");
+	mOutputFileSelector->setButtonText(u8R"(Sélectionner un fichier de sortie)");
+	mOutputFileSelector->setOpen(u8R"(Sélectionner un fichier de sortie)",
+		"fichiers C++ (*.h *.hpp *.hxx *.cpp *.cc *.c *.cxx *.c++ *.txt)");
 	mOutputFileSelector->setComplyFileNameFunction(complyFileName);
 
 	//Pour le groupe de boutons
@@ -72,7 +71,6 @@ void QCppXtractParamWidget::updateGui()
 	mOutputFileSelector->setEnabled(mOutputFileRadioButton->isChecked());
 }
 
-
 bool QCppXtractParamWidget::isValid() const
 {
 	//Pas de fichier d'entrée?
@@ -94,7 +92,25 @@ bool QCppXtractParamWidget::isValid() const
 }
 
 
-int QCppXtractParamWidget::outputType()
+QCppXtractParamWidget::OutputType QCppXtractParamWidget::outputType()
 {
 	return static_cast<OutputType>(mButtonGroup->checkedId());
+}
+
+
+ const QString & QCppXtractParamWidget::inputFilename() const
+{
+	 return mInputFileSelector->selectedFile();
+}
+
+
+const QString & QCppXtractParamWidget::outputFilename() const
+{
+	return mOutputFileSelector->selectedFile();
+}
+
+
+bool QCppXtractParamWidget::isStatIncluded() const
+{
+	return mIncludeStatInfoCheckBox->isChecked();
 }

@@ -1,8 +1,9 @@
 #include "stdafx.h"
+#include <QClipboard>
 #include "cppxtract.h"
 #include "QCppXtractParamWidget.h"
 #include <CppXtractLib.h>
-//#include <C:\Users\Frederic\Desktop\GIT - Copie\skyrimax\CppXtractLib\CppXtractLib\CppXtractLib\CppXtract.h>
+#include "qtplaintextdialog.h"
 
 
 class QCppXtractParamWidget; //Déclaration anticipée
@@ -117,9 +118,9 @@ void CppXtract::process()
 
 	//S'assurert que le fichier d'entrée est valide
 	QFileInfo inputFileInfo(mCppXtractParamWidget->inputFilename());
-	if (!fileOk(inputFileInfo, errorMsg))
+	if (!fileOk(inputFileInfo, errorMsg, false))
 	{
-		QMessageBox::warning(this, "Erreur", errorMsg + "\Aucune extraction n'a eu lieu");
+		QMessageBox::warning(this, "Erreur", errorMsg + "\nAucune extraction n'a eu lieu");
 		return;
 	}
 	//Créer la FST pour l'Extraction des commentaires
@@ -128,9 +129,67 @@ void CppXtract::process()
 	//Exécuter l'extraction selon les options de sorties
 	switch (mCppXtractParamWidget->outputType())
 	{
-
+	//L'utilisateur sélectionne la sortie vers un fichier
+	case QCppXtractParamWidget::OutputType::File: 
+	{
+		errorMsg.clear();
+		QFileInfo outputFileInfo(mCppXtractParamWidget->outputFilename());
+		if (!fileOk(outputFileInfo, errorMsg, false))
+		{
+			QMessageBox::warning(this, "Erreur", errorMsg + "\nAucune extraction n'a eu lieu");
+			return;
+		}
+		else
+		{
+			//Exécute l'extraction
+			cppXtract.processFromFileToFile(inputFileInfo.filePath().toStdString(),
+				outputFileInfo.filePath().toStdString(),
+				mCppXtractParamWidget->isStatIncluded());
+			QMessageBox::information(this, u8R"(Opération terminé, Merci Tony Wong!!!)",
+				QString(u8R"(Le fichier de sortie )") + "\"" + outputFileInfo.fileName() +
+				"\"" + u8R"( a été créé)");
+		}
+		break;
 	}
-}
+	//L'utilisateur a choisi la sortie vers le presse-papier
+	case QCppXtractParamWidget::OutputType::Clipboard: 
+	{
+
+		std::string StringClipboard;
+
+		//Exécute l'extraction
+		cppXtract.processFromFileToString(inputFileInfo.filePath().toStdString(),
+			StringClipboard, mCppXtractParamWidget->isStatIncluded());
+		//Convertir std::string en QString
+		QString qstr = QString::fromLocal8Bit(StringClipboard.c_str());
+		//Envoie du QString dans le clipboard par la fonction setText()
+		clipBoard->clipboard()->setText(qstr, QClipboard::Clipboard);
+
+		QMessageBox::information(this, u8R"(Opération sélectionnée)",
+			QString(u8R"(Il faut envoyer les résultats vers le presse-papier!)"));
+
+		break;
+	}
+	//L'utilisateur a choisi la sortie vers l'écran
+	case QCppXtractParamWidget::OutputType::Screen: 
+	{
+		std::string StringClipboard;
+
+		//Extraction des commentaires dans un string
+		cppXtract.processFromFileToString(inputFileInfo.filePath().toStdString(),
+			StringClipboard, mCppXtractParamWidget->isStatIncluded());
+
+		//Convertir std::string en QString
+		QString qstr = QString::fromLocal8Bit(StringClipboard.c_str());
+
+		//Exécution de l'extraction vers l'écran
+		QtPlainTextDialog resultDialog(this, qstr);
+		resultDialog.exec();
+		break;
+	}
+
+	}//Fin du switch-case
+}//Fin de la procédure process()
 
 
 bool CppXtract::fileOk(const QFileInfo &xFile, QString &errMsg, bool checkRead)
@@ -140,7 +199,7 @@ bool CppXtract::fileOk(const QFileInfo &xFile, QString &errMsg, bool checkRead)
 	errMsg += QString("\"") + xFile.fileName() + "\"" + " : "; 
 
 	//D'Abord s'Assurer que nom du fichier n'est pas vide
-	if (xFile.fileName().isEmpty) {
+	if (xFile.fileName().isEmpty()) {
 		errMsg += "N'a pas de nom. \n";
 		return false;
 	}
@@ -154,7 +213,7 @@ bool CppXtract::fileOk(const QFileInfo &xFile, QString &errMsg, bool checkRead)
 	if (checkRead)
 	{
 		//S'assurer que l'utilisateur a la permission lecture
-		if (!QFileInfo(xFile.path()).isReadable)
+		if (!QFileInfo(xFile.path()).isReadable())
 		{
 			errMsg += QString(u8R"(Il est protégé contre la lecture.)") + "\n";
 			return false;

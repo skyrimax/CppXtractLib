@@ -1,6 +1,8 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
+#include <QGuiApplication>
+#include <QClipboard>
 #include "ui_cppxtract.h"
 #include "QCppXtractParamWidget.h"
 
@@ -39,6 +41,7 @@ private slots:
 private:
 	Ui::CppXtractClass ui;
 	QCppXtractParamWidget *mCppXtractParamWidget;
+	QGuiApplication *clipBoard;
 	
 };
 

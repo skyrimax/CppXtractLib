@@ -21,7 +21,9 @@ public:
 	const QString & outputFilename() const;
 	bool isStatIncluded() const;
 	bool isValid() const;
-	int outputType();
+
+	//Accesseur
+	OutputType outputType();
 
 
 private :
