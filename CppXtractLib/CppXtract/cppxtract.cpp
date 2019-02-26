@@ -131,7 +131,7 @@ void CppXtract::showAboutCpp()
 		Many other programming languages have been influenced by C++<br>\
 		including C#, D, Java, and even newer versions of C.<br>\
 		<br>\
-		Source principale : <a href = \" https://en.wikipedia.org/wiki/C%2B%2B \"> sur Wikipedia </a>"
+		Source principale : <a href = \" https://en.wikipedia.org/wiki/C%2B%2B \"> C++ sur Wikipedia </a>"
 	};
 
 	// Création du MessageBox
@@ -214,7 +214,7 @@ void CppXtract::process()
 
 		if (!clipboard)
 		{
-			QMessageBox::warning(this, "Erreur", QString("N'as pas pu avoir acces au presse-papier")
+			QMessageBox::warning(this, "Erreur", QString(u8R"(N'as pas pu avoir accèss au presse-papier)")
 				+ "\nAucune extraction n'as eu lieu");
 			return;
 		}
@@ -223,7 +223,7 @@ void CppXtract::process()
 			//Exécute l'extraction
 			cppXtract.processFromFileToString(inputFileInfo.filePath().toStdString(),
 				str, mCppXtractParamWidget->isStatIncluded());
-			clipboard->setText(QString(str.c_str()));
+			clipboard->setText(QString::fromLocal8Bit(str.c_str()));
 			QMessageBox::information(this, u8R"(Opération terminée)",
 				QString(u8R"(Le résultat à été placé dans le presse-papier)"));
 		}
@@ -245,7 +245,7 @@ void CppXtract::process()
 		cppXtract.processFromFileToString(inputFileInfo.filePath().toStdString(),
 			str, mCppXtractParamWidget->isStatIncluded());
 		QtPlainTextDialog resultDialog(this,
-			QString(str.c_str()));
+			QString::fromLocal8Bit(str.c_str()));
 		resultDialog.exec();
 		break;
 	}

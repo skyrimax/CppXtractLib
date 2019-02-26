@@ -10,7 +10,7 @@ Informations globales
  - Statistiques generales :
    - espaces : 6
    - lignes  : 5
-   - autres  : 24
+   - autres  : 23
  - Litteraux : 
    - charactere            : 0
    - chaînes de caracteres : 0
