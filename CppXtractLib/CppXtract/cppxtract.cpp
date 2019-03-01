@@ -205,10 +205,6 @@ void CppXtract::process()
 		// L'utilisateur a choisi la sortie vers le presse-papier
 	case QCppXtractParamWidget::OutputType::Clipboard:
 	{
-		/*QMessageBox::information(this, u8R"(Opération sélectionnée)",
-			QString(u8R"(Il faut envoyer les résultats vers le presse papier!)"));*/
-
-		//Création d'un pointeur sur le clipboard
 		QClipboard* clipboard = QGuiApplication::clipboard();
 		std::string str;
 
@@ -225,20 +221,13 @@ void CppXtract::process()
 				str, mCppXtractParamWidget->isStatIncluded());
 			clipboard->setText(QString::fromLocal8Bit(str.c_str()));
 			QMessageBox::information(this, u8R"(Opération terminée)",
-				QString(u8R"(Le résultat à été placé dans le presse-papier)"));
+				QString(u8R"(Le presse papier a été mis à jour.)"));
 		}
 		break;
 	}
 		// L'utilisateur a choisi vers l'écran
 	case QCppXtractParamWidget::OutputType::Screen:
 	{
-		/*QMessageBox::information(this, u8R"(Opération sélectionnée)",
-			QString(u8R"(Il faut envoyer les résultats vers l'écran!)"));*/
-
-		// Test le l'output vers l'écran
-		/*QtPlainTextDialog resultDialog(this,
-			QString("Bla\nBla\nBla.\nJ'aime faire des devoirs.\nBla\nBla\nBla!!"));*/
-
 		std::string str;
 
 		// Output vers l'écran
