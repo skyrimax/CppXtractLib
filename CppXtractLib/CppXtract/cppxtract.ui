@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CppXtractClass</class>
+ <widget class="QWidget" name="CppXtractClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>445</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CppXtract</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="1">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>18</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="0">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>28</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="1">
+      <widget class="QWidget" name="cppXtractParameters" native="true">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QWidget" name="fileSelectorInput" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QPushButton" name="fileSelectorButtonImput">
+             <property name="text">
+              <string>Sélectionner un fichier d'entré</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="inputFilePathLabel">
+             <property name="text">
+              <string>-</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="outputOptions">
+          <property name="autoFillBackground">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>Option de sortie</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QRadioButton" name="screenRadioButton">
+             <property name="text">
+              <string>À l'écran</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">outputOptionButtonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="clipboardRadioButton">
+             <property name="text">
+              <string>Vers le presse papier</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">outputOptionButtonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="fileRadioButton">
+             <property name="text">
+              <string>Vers un fichier de sortie</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">outputOptionButtonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="fileSelectorOutput" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <widget class="QPushButton" name="fileSlectorButtonOutput">
+                <property name="text">
+                 <string>Sélectionner un fichier d'entré</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="outputFilePathLabel">
+                <property name="text">
+                 <string>-</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="statisticsCheckBox">
+             <property name="text">
+              <string>Insérer les statistiques</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>28</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="1">
+      <widget class="QWidget" name="cppXtractButton" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="extractButton">
+          <property name="text">
+           <string>Extraire les commentaires...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QWidget" name="aboutBar" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="aboutCppXtractButton">
+          <property name="text">
+           <string>À propos de CppXtract...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="aboutCPlusPlusButton">
+          <property name="text">
+           <string>À propos du langage C++...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="aboutQtButton">
+          <property name="text">
+           <string>À propos de QT...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>18</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="cppxtract.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>aboutQtButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CppXtractClass</receiver>
+   <slot>showAboutQt()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>493</x>
+     <y>397</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>478</x>
+     <y>417</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>aboutCPlusPlusButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CppXtractClass</receiver>
+   <slot>showAboutCpp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>318</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>416</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>aboutCppXtractButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CppXtractClass</receiver>
+   <slot>showAboutCppXtract()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>180</x>
+     <y>393</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>164</x>
+     <y>418</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>showAboutCppXtract()</slot>
+  <slot>showAboutCpp()</slot>
+  <slot>showAboutQt()</slot>
+ </slots>
+ <buttongroups>
+  <buttongroup name="outputOptionButtonGroup"/>
+ </buttongroups>
+</ui>

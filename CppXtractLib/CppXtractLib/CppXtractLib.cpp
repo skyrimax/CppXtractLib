@@ -1,4 +1,4 @@
-#include "CppXtract.h"
+#include "CppXtractLib.h"
 
 
 #include "State.h"
@@ -20,6 +20,8 @@
 #include "TransducerCounterReporter.h"
 
 #include <sstream>
+
+using namespace cppXtractLib;
 
 // CppXtract est une classe permettant le traitement des commentaires C/C++.
 // C'est une version spécifique de la classe générique FST. Le constructeur

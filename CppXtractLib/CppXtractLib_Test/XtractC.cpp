@@ -1,5 +1,5 @@
 
-#include <CppXtract.h>
+#include <CppXtractLib.h>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 	// Créer un objet de type CppXtract
 	// Les diagrammes d'états-transitions seront créés automatiquement
 	// par cet objet
-	CppXtract cppXtract;
+	cppXtractLib::CppXtract cppXtract;
 	//list<bool> acceptingStates{ cppXtract.process(*reader, *writer, true) };
 	list<bool> acceptingStates;
 	std::string testString;
